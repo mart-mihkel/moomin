@@ -4,13 +4,14 @@ import QtQuick.Layouts
 
 PanelWindow {
     id: root
-    color: "transparent"
-    implicitWidth: 16 + Config.margin.md * 2
     anchors {
         top: true
         left: true
         bottom: true
     }
+
+    color: "transparent"
+    implicitWidth: 16 + Config.margin.md * 2
 
     ColumnLayout {
         spacing: Config.margin.md * 2
@@ -22,22 +23,12 @@ PanelWindow {
             bottomMargin: Config.margin.md
         }
 
+        BarWorkspaces {}
+        Item { Layout.fillHeight: true }
+        BarClock {}
         Column {
-            MaterialIcon { text: "image" }
-            Workspaces {}
+            MaterialIcon { text: "tune" }
+            Dashboard {}
         }
-
-        Item { Layout.fillHeight: enabled }
-
-        Column {
-            MaterialIcon { text: "calendar_clock" }
-            Text {
-                text: Time.format("hh\nmm")
-                font.family: Config.font.family.mono
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-        }
-
-        MaterialIcon { text: "tune" }
     }
 }
