@@ -4,7 +4,6 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
-    id: root
     readonly property Font font: Font {}
     readonly property Margin margin: Margin {}
 

@@ -8,5 +8,6 @@ Repeater {
         text: index + 1 == Hyprland.focusedWorkspace?.id ? "adjust" : "circle"
         font.family: Config.font.family.material
         anchors.horizontalCenter: parent.horizontalCenter
+        color: ColorsHellwal.foreground
     }
 }

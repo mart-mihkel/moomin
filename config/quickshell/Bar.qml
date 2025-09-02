@@ -16,6 +16,7 @@ PanelWindow {
 
     RectangularShadow {
         anchors.fill: barRect
+        color: ColorsHellwal.foreground
     }
 
     Rectangle {
@@ -29,9 +30,9 @@ PanelWindow {
 
         id: barRect
         radius: 8
+        color: ColorsHellwal.background
 
         ColumnLayout {
-            spacing: Config.margin.md * 2
             anchors {
                 fill: parent
                 topMargin: 8
@@ -39,6 +40,8 @@ PanelWindow {
                 rightMargin: 8
                 bottomMargin: 8
             }
+
+            spacing: 16
 
             Column {
                 MaterialIcon { text: "image" }
