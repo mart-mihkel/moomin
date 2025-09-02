@@ -43,23 +43,11 @@ PanelWindow {
 
             spacing: 16
 
-            Column {
-                MaterialIcon { text: "image" }
-                BarWorkspaces {}
-            }
-
+            BarWorkspaces {}
+            BarTray {}
             Column { Layout.fillHeight: true }
-
-
-            Column {
-                MaterialIcon { text: "calendar_clock" }
-                BarClock {}
-            }
-
-            Column {
-                MaterialIcon { text: "tune" }
-                Dashboard { show: true }
-            }
+            BarClock {}
+            BarDashboard {}
         }
     }
 }
