@@ -6,24 +6,34 @@ import Quickshell
 Scope {
     id: root
     property bool show: true
-
     LazyLoader {
         active: root.show
         PanelWindow {
-            anchors.left: true
-            exclusiveZone: 0
-            margins {
-                top: 8
-                left: 8
-                bottom: 8
+            anchors {
+                left: true
             }
 
             color: "transparent"
             implicitWidth: 300
             implicitHeight: 400
+            exclusiveZone: 0
+
+            RectangularShadow {
+                anchors.fill: dashboardRect
+            }
+
             Rectangle {
-                anchors.fill: parent
+                anchors {
+                    fill: parent
+                    topMargin: 8
+                    leftMargin: 8
+                    rightMargin: 8
+                    bottomMargin: 8
+                }
+
+                id: dashboardRect
                 radius: 8
+
                 GridLayout {
                     anchors {
                         fill: parent
@@ -37,6 +47,29 @@ Scope {
                     columnSpacing: 8
                     rows: 4
                     columns: 3
+
+                    // date time
+                    Rectangle {
+                        Layout.columnSpan: 2
+                        implicitWidth: parent.width * 2 / 3 - 8/2
+                        implicitHeight: parent.heigth / 4
+                        radius: 8
+                        color: "blue"
+
+                        Text {
+                            id: clock
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.pointSize: 24
+                            text: TimeService.format("hh:mm:ss")
+                        }
+
+                        Text {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.top: clock.bottom
+                            text: TimeService.format("ddd d. MMM yyyy")
+                        }
+                    }
 
                     // wifi bluetooth mic powermode
                     Rectangle {
@@ -54,6 +87,7 @@ Scope {
                                 rightMargin: 4
                                 bottomMargin: 4
                             }
+
                             rowSpacing: 4
                             columnSpacing: 4
                             rows: 2
@@ -106,29 +140,6 @@ Scope {
                                     text: "balance"
                                 }
                             }
-                        }
-                    }
-
-                    // date time
-                    Rectangle {
-                        Layout.columnSpan: 2
-                        implicitWidth: parent.width * 2 / 3 - 8/2
-                        implicitHeight: parent.heigth / 4
-                        radius: 8
-                        color: "blue"
-
-                        Text {
-                            id: clock
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
-                            font.pointSize: 24
-                            text: TimeService.format("hh:mm:ss")
-                        }
-
-                        Text {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.top: clock.bottom
-                            text: TimeService.format("ddd d. MMM yyyy")
                         }
                     }
 
