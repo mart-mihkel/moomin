@@ -22,10 +22,10 @@ PanelWindow {
     Rectangle {
         anchors {
             fill: parent
-            topMargin: 8
+            topMargin: 32
             leftMargin: 8
             rightMargin: 8
-            bottomMargin: 8
+            bottomMargin: 32
         }
 
         id: barRect
