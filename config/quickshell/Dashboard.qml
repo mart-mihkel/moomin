@@ -311,10 +311,27 @@ Scope {
                             spacing: 16
 
                             Row { Layout.fillWidth: true }
-                            DashboardButton { icon: "power_settings_new" }
-                            DashboardButton { icon: "refresh" }
-                            DashboardButton { icon: "sleep" }
-                            DashboardButton { icon: "lock" }
+
+                            DashboardButton {
+                                icon: "power_settings_new"
+                                command: "shutdown now"
+                            }
+
+                            DashboardButton {
+                                icon: "refresh"
+                                command: "reboot"
+                            }
+
+                            DashboardButton {
+                                icon: "sleep"
+                                command: "systemctl suspend"
+                            }
+
+                            DashboardButton {
+                                icon: "lock"
+                                command: "hyprlock"
+                            }
+
                             Row { Layout.fillWidth: true }
                         }
                     }
