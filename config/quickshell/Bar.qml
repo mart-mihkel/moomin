@@ -58,7 +58,7 @@ PanelWindow {
 
             Column {
                 MaterialIcon { text: "tune" }
-                Dashboard {}
+                Dashboard { show: true }
             }
         }
     }

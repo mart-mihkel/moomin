@@ -4,19 +4,22 @@ import QtQuick.Effects
 import Quickshell
 
 Scope {
+    required property bool show
+
     id: root
-    property bool show: true
+
     LazyLoader {
         active: root.show
+
         PanelWindow {
             anchors {
                 left: true
             }
 
-            color: "transparent"
+            exclusiveZone: 0
             implicitWidth: 300
             implicitHeight: 400
-            exclusiveZone: 0
+            color: "transparent"
 
             RectangularShadow {
                 anchors.fill: dashboardRect
@@ -45,10 +48,10 @@ Scope {
                         bottomMargin: 8
                     }
 
-                    rowSpacing: 8
-                    columnSpacing: 8
                     rows: 4
                     columns: 3
+                    rowSpacing: 8
+                    columnSpacing: 8
 
                     // date time
                     Rectangle {
@@ -87,64 +90,19 @@ Scope {
                         GridLayout {
                             anchors {
                                 fill: parent
-                                topMargin: 4
-                                leftMargin: 4
-                                rightMargin: 4
-                                bottomMargin: 4
+                                topMargin: 8
+                                leftMargin: 8
+                                rightMargin: 8
+                                bottomMargin: 8
                             }
 
-                            rowSpacing: 4
-                            columnSpacing: 4
                             rows: 2
                             columns: 2
 
-                            Rectangle {
-                                implicitWidth: parent.width / 2 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "wifi"
-                                }
-                            }
-
-                            Rectangle {
-                                implicitWidth: parent.width / 2 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "bluetooth"
-                                }
-                            }
-
-                            Rectangle {
-                                implicitWidth: parent.width / 2 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "mic"
-                                }
-                            }
-
-                            Rectangle {
-                                implicitWidth: parent.width / 2 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "balance"
-                                }
-                            }
+                            DashboardButton { icon: "wifi" }
+                            DashboardButton { icon: "bluetooth" }
+                            DashboardButton { icon: "mic" }
+                            DashboardButton { icon: "balance" }
                         }
                     }
 
@@ -337,7 +295,7 @@ Scope {
                     Rectangle {
                         Layout.columnSpan: 3
                         implicitWidth: parent.width
-                        implicitHeight: parent.heigth / 8
+                        implicitHeight: parent.heigth / 4
                         radius: 8
                         color: ColorsHellwal.color9
 
@@ -350,53 +308,14 @@ Scope {
                                 bottomMargin: 4
                             }
 
-                            Rectangle {
-                                implicitWidth: parent.width / 4 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "power"
-                                }
-                            }
+                            spacing: 16
 
-                            Rectangle {
-                                implicitWidth: parent.width / 4 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "refresh"
-                                }
-                            }
-
-                            Rectangle {
-                                implicitWidth: parent.width / 4 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "sleep"
-                                }
-                            }
-
-                            Rectangle {
-                                implicitWidth: parent.width / 4 - 4
-                                implicitHeight: parent.heigth / 2
-                                radius: 16
-                                color: ColorsHellwal.color3
-                                MaterialIcon {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: "lock"
-                                }
-                            }
+                            Row { Layout.fillWidth: true }
+                            DashboardButton { icon: "power_settings_new" }
+                            DashboardButton { icon: "refresh" }
+                            DashboardButton { icon: "sleep" }
+                            DashboardButton { icon: "lock" }
+                            Row { Layout.fillWidth: true }
                         }
                     }
                 }
