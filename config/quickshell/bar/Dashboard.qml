@@ -13,7 +13,7 @@ Column {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: () => root.show = true;
+            onClicked: () => root.show = !root.show;
         }
     }
 
