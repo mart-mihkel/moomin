@@ -1,4 +1,6 @@
 import QtQuick
+import "../util"
+import "../dashboard"
 
 Column {
     // TODO: false by default
@@ -6,8 +8,8 @@ Column {
 
     id: root
 
-    MaterialIcon {
-        text: "tune"
+    Icon {
+        icon: "tune"
 
         MouseArea {
             anchors.fill: parent

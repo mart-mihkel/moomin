@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell
+import "../util"
 
 Scope {
     required property bool show
@@ -24,7 +25,7 @@ Scope {
 
             RectangularShadow {
                 anchors.fill: dashboardRect
-                color: ColorsHellwal.foreground
+                color: Colors.foreground
             }
 
             Rectangle {
@@ -38,7 +39,7 @@ Scope {
 
                 id: dashboardRect
                 radius: 8
-                color: ColorsHellwal.background
+                color: Colors.background
 
                 GridLayout {
                     anchors {
@@ -54,30 +55,30 @@ Scope {
                     rowSpacing: 8
                     columnSpacing: 8
 
-                    DashboardDate {
+                    Datetime {
                         Layout.columnSpan: 2
                         implicitWidth: parent.width * 2 / 3 - 8
                         implicitHeight: parent.heigth / 4
                     }
 
-                    DashboardMedia {
+                    Media {
                         implicitWidth: parent.width / 3
                         implicitHeight: parent.heigth / 4
                     }
 
-                    DashboardSliders {
+                    Sliders {
                         Layout.columnSpan: 3
                         implicitWidth: parent.width
                         implicitHeight: parent.heigth / 4
                     }
 
-                    DashboardMpris {
+                    Mpris {
                         Layout.columnSpan: 3
                         implicitWidth: parent.width
                         implicitHeight: parent.heigth / 4
                     }
 
-                    DashboardLogout {
+                    Logout {
                         Layout.columnSpan: 3
                         implicitWidth: parent.width
                         implicitHeight: parent.heigth / 4

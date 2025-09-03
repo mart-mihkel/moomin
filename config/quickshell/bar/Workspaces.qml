@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
+import "../util"
 
 Column {
     // TODO: find actual moomin icon
-    MaterialIcon { text: "image" }
+    Icon { icon: "image" }
     Repeater {
         model: 5
         Text {
@@ -12,7 +13,7 @@ Column {
             text: index + 1 == Hyprland.focusedWorkspace?.id ? "adjust" : "circle"
             font.family: Config.font.family.material
             anchors.horizontalCenter: parent.horizontalCenter
-            color: ColorsHellwal.foreground
+            color: Colors.foreground
         }
     }
 }

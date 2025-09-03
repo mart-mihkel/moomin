@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Layouts
+import "../util"
 
 Rectangle {
     radius: 8
-    color: ColorsHellwal.color9
+    color: Colors.color9
 
     RowLayout {
         anchors.fill: parent
@@ -11,22 +12,22 @@ Rectangle {
 
         Row { Layout.fillWidth: true }
 
-        DashboardButton {
+        Button {
             icon: "power_settings_new"
             command: "shutdown now"
         }
 
-        DashboardButton {
+        Button {
             icon: "refresh"
             command: "reboot"
         }
 
-        DashboardButton {
+        Button {
             icon: "sleep"
             command: "systemctl suspend"
         }
 
-        DashboardButton {
+        Button {
             icon: "lock"
             command: "hyprlock"
         }

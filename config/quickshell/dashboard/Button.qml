@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Io
+import "../util"
 
 Rectangle {
     required property string icon
@@ -12,12 +13,12 @@ Rectangle {
     implicitWidth: 32
     implicitHeight: 32
     radius: 16
-    color: mouse.containsMouse ? ColorsHellwal.color11 : ColorsHellwal.color3
+    color: mouse.containsMouse ? Colors.color11 : Colors.color3
 
-    MaterialIcon {
+    Icon {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        text: root.icon
+        icon: root.icon
     }
 
     MouseArea {

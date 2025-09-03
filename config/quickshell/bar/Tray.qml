@@ -1,6 +1,7 @@
 import QtQuick
+import "../util"
 
 Column {
-    MaterialIcon { text: "backup_table" }
+    Icon { icon: "backup_table" }
     // TODO: tray/windows in wsp
 }

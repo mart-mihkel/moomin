@@ -1,11 +1,13 @@
 import QtQuick
+import "../services"
+import "../util"
 
 Column {
-    MaterialIcon { text: "calendar_clock" }
+    Icon { icon: "calendar_clock" }
     Text {
-        text: TimeService.format("hh\nmm")
+        text: Clock.format("hh\nmm")
         font.family: Config.font.family.mono
         anchors.horizontalCenter: parent.horizontalCenter
-        color: ColorsHellwal.foreground
+        color: Colors.foreground
     }
 }

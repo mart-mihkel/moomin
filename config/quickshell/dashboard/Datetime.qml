@@ -1,9 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
+import "../services"
+import "../util"
 
 Rectangle {
     radius: 8
-    color: ColorsHellwal.color9
+    color: Colors.color9
 
     Column {
         anchors {
@@ -19,15 +21,15 @@ Rectangle {
             }
 
             anchors.horizontalCenter: parent.horizontalCenter
-            text: TimeService.format("󰥔 hh:mm")
-            color: ColorsHellwal.foreground
+            text: Clock.format("󰥔 hh:mm")
+            color: Colors.foreground
         }
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: TimeService.format("󰃭 ddd d. MMM yyyy")
+            text: Clock.format("󰃭 ddd d. MMM yyyy")
             font.family: Config.font.family.mono
-            color: ColorsHellwal.foreground
+            color: Colors.foreground
         }
     }
 }

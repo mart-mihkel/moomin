@@ -1,11 +1,12 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Mpris
+import "../util"
 
 Rectangle {
     id: root
     radius: 8
-    color: ColorsHellwal.color9
+    color: Colors.color9
 
     readonly property list<MprisPlayer> players: Mpris.players.values
     readonly property MprisPlayer player: players[0]
@@ -45,7 +46,7 @@ Rectangle {
             implicitWidth: parent.width / 3
             implicitHeight: parent.heigth * 1
             radius: 8
-            color: ColorsHellwal.color3
+            color: Colors.color3
         }
 
         Text {
@@ -57,13 +58,13 @@ Rectangle {
 
             text: player?.trackTitle
             Layout.columnSpan: 2
-            color: ColorsHellwal.foreground
+            color: Colors.foreground
         }
 
         Text {
             text: player?.trackArtist
             font.family: Config.font.family.mono
-            color: ColorsHellwal.foreground
+            color: Colors.foreground
         }
 
         RowLayout {
@@ -72,14 +73,14 @@ Rectangle {
             Text {
                 text: root.lengthStr(player?.position)
                 font.family: Config.font.family.mono
-                color: ColorsHellwal.foreground
+                color: Colors.foreground
             }
 
             Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 16
-                color: ColorsHellwal.color3
+                color: Colors.color3
 
                 Rectangle {
                     anchors {
@@ -90,14 +91,14 @@ Rectangle {
 
                     implicitWidth: parent.width * (player?.position / player?.length)
                     radius: parent.radius
-                    color: ColorsHellwal.color11
+                    color: Colors.color11
                 }
             }
 
             Text {
                 text: root.lengthStr(player?.length)
                 font.family: Config.font.family.mono
-                color: ColorsHellwal.foreground
+                color: Colors.foreground
             }
         }
     }

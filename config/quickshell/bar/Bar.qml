@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell
+import "../util"
 
 PanelWindow {
     anchors {
@@ -16,7 +17,7 @@ PanelWindow {
 
     RectangularShadow {
         anchors.fill: barRect
-        color: ColorsHellwal.foreground
+        color: Colors.foreground
     }
 
     Rectangle {
@@ -30,7 +31,7 @@ PanelWindow {
 
         id: barRect
         radius: 8
-        color: ColorsHellwal.background
+        color: Colors.background
 
         ColumnLayout {
             anchors {
@@ -43,11 +44,11 @@ PanelWindow {
 
             spacing: 16
 
-            BarWorkspaces {}
-            BarTray {}
+            Workspaces {}
+            Tray {}
             Column { Layout.fillHeight: true }
-            BarClock {}
-            BarDashboard {}
+            Time {}
+            Dashboard {}
         }
     }
 }

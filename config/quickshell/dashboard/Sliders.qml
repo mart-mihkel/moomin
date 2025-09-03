@@ -1,9 +1,15 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Services.Pipewire
+import "../util"
 
 Rectangle {
     radius: 8
-    color: ColorsHellwal.color9
+    color: Colors.color9
+
+    PwObjectTracker {
+        objects: [ Pipewire.defaultAudioSink ]
+    }
 
     ColumnLayout {
         anchors {
@@ -18,8 +24,8 @@ Rectangle {
             implicitWidth: parent.width
             implicitHeight: parent.heigth / 2
 
-            MaterialIcon {
-                text: "volume_up"
+            Icon {
+                icon: "volume_up"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
 
@@ -27,7 +33,7 @@ Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 8
-                color: ColorsHellwal.color3
+                color: Colors.color3
 
                 Rectangle {
                     anchors {
@@ -36,9 +42,9 @@ Rectangle {
                         bottom: parent.bottom
                     }
 
-                    implicitWidth: parent.width * 0.5
+                    implicitWidth: parent.width * (Pipewire.defaultAudioSink?.audio.volume ?? 0)
                     radius: parent.radius
-                    color: ColorsHellwal.color11
+                    color: Colors.color11
                 }
             }
         }
@@ -47,8 +53,8 @@ Rectangle {
             implicitWidth: parent.width
             implicitHeight: parent.heigth / 2
 
-            MaterialIcon {
-                text: "brightness_7"
+            Icon {
+                icon: "brightness_7"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
 
@@ -56,7 +62,7 @@ Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 8
-                color: ColorsHellwal.color3
+                color: Colors.color3
 
                 Rectangle {
                     anchors {
@@ -67,7 +73,7 @@ Rectangle {
 
                     implicitWidth: parent.width * 0.75
                     radius: parent.radius
-                    color: ColorsHellwal.color11
+                    color: Colors.color11
                 }
             }
         }

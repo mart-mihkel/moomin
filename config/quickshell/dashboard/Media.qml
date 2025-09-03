@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Layouts
+import "../util"
 
 Rectangle {
     radius: 8
-    color: ColorsHellwal.color9
+    color: Colors.color9
 
     GridLayout {
         anchors {
@@ -17,22 +18,22 @@ Rectangle {
         rows: 2
         columns: 2
 
-        DashboardButton {
+        Button {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             icon: "wifi"
         }
 
-        DashboardButton {
+        Button {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             icon: "bluetooth"
         }
 
-        DashboardButton {
+        Button {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             icon: "mic"
         }
 
-        DashboardButton {
+        Button {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             icon: "balance"
         }
