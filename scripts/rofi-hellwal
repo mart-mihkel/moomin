@@ -2,11 +2,14 @@
 
 cfg=$HOME/.config
 cache=$HOME/.cache/hellwal
-walls=$HOME/pictures/walls
-img=$(ls $pics | rofi -dmenu)
+walls=$HOME/pictures/wallpapers
+img=$(ls $walls | rofi -dmenu)
 if [ -z $img ]; then
     exit 1
 fi
 
 hellwal -l --image $walls/$img
-cp $cache/ColorsHellwal.qml $cfg/quickshell/ColorsHellwal.qml
+swww img $walls/$img &
+
+cp $cache/Colors.qml $cfg/quickshell/util
+cp $cache/colors.conf $cfg/hypr
