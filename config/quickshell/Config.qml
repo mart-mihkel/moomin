@@ -5,7 +5,6 @@ import Quickshell.Io
 
 Singleton {
     readonly property Font font: Font {}
-    readonly property Margin margin: Margin {}
 
     component Font: JsonObject {
         readonly property FontFamily family: FontFamily {}
@@ -16,8 +15,4 @@ Singleton {
         readonly property string material: "Material Symbols Rounded"
     }
 
-    component Margin: JsonObject {
-        readonly property int sm: 4
-        readonly property int md: 8
-    }
 }

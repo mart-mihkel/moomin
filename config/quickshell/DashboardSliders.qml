@@ -2,19 +2,16 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-    Layout.columnSpan: 3
-    implicitWidth: parent.width
-    implicitHeight: parent.heigth / 8 - 8/2
     radius: 8
-    color: "transparent"
+    color: ColorsHellwal.color9
 
     ColumnLayout {
         anchors {
             fill: parent
-            topMargin: 4
-            leftMargin: 4
-            rightMargin: 4
-            bottomMargin: 4
+            topMargin: 16
+            leftMargin: 32
+            rightMargin: 32
+            bottomMargin: 16
         }
 
         RowLayout {
@@ -23,14 +20,14 @@ Rectangle {
 
             MaterialIcon {
                 text: "volume_up"
-                anchors.verticalCenter: parent.verticalCenter
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
 
             Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 8
-                color: ColorsHellwal.color9
+                color: ColorsHellwal.color3
 
                 Rectangle {
                     anchors {
@@ -39,9 +36,9 @@ Rectangle {
                         bottom: parent.bottom
                     }
 
-                    implicitWidth: 40
+                    implicitWidth: parent.width * 0.5
                     radius: parent.radius
-                    color: ColorsHellwal.color3
+                    color: ColorsHellwal.color11
                 }
             }
         }
@@ -52,14 +49,14 @@ Rectangle {
 
             MaterialIcon {
                 text: "brightness_7"
-                anchors.verticalCenter: parent.verticalCenter
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
 
             Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 8
-                color: ColorsHellwal.color9
+                color: ColorsHellwal.color3
 
                 Rectangle {
                     anchors {
@@ -68,9 +65,9 @@ Rectangle {
                         bottom: parent.bottom
                     }
 
-                    implicitWidth: 10
+                    implicitWidth: parent.width * 0.75
                     radius: parent.radius
-                    color: ColorsHellwal.color3
+                    color: ColorsHellwal.color11
                 }
             }
         }

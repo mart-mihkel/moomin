@@ -2,8 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-    implicitWidth: parent.width / 3 - 8/2
-    implicitHeight: parent.heigth / 4
     radius: 8
     color: ColorsHellwal.color9
 
@@ -19,9 +17,24 @@ Rectangle {
         rows: 2
         columns: 2
 
-        DashboardButton { icon: "wifi" }
-        DashboardButton { icon: "bluetooth" }
-        DashboardButton { icon: "mic" }
-        DashboardButton { icon: "balance" }
+        DashboardButton {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            icon: "wifi"
+        }
+
+        DashboardButton {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            icon: "bluetooth"
+        }
+
+        DashboardButton {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            icon: "mic"
+        }
+
+        DashboardButton {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            icon: "balance"
+        }
     }
 }

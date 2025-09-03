@@ -18,8 +18,8 @@ Scope {
             }
 
             exclusiveZone: 0
-            implicitWidth: 300
-            implicitHeight: 400
+            implicitWidth: 325
+            implicitHeight: 450
             color: "transparent"
 
             RectangularShadow {
@@ -54,11 +54,34 @@ Scope {
                     rowSpacing: 8
                     columnSpacing: 8
 
-                    DashboardDate {}
-                    DashboardMedia {}
-                    DashboardSliders {}
-                    DashboardMpris {}
-                    DashboardLogout {}
+                    DashboardDate {
+                        Layout.columnSpan: 2
+                        implicitWidth: parent.width * 2 / 3 - 8
+                        implicitHeight: parent.heigth / 4
+                    }
+
+                    DashboardMedia {
+                        implicitWidth: parent.width / 3
+                        implicitHeight: parent.heigth / 4
+                    }
+
+                    DashboardSliders {
+                        Layout.columnSpan: 3
+                        implicitWidth: parent.width
+                        implicitHeight: parent.heigth / 4
+                    }
+
+                    DashboardMpris {
+                        Layout.columnSpan: 3
+                        implicitWidth: parent.width
+                        implicitHeight: parent.heigth / 4
+                    }
+
+                    DashboardLogout {
+                        Layout.columnSpan: 3
+                        implicitWidth: parent.width
+                        implicitHeight: parent.heigth / 4
+                    }
                 }
             }
         }

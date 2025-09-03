@@ -2,21 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-    Layout.columnSpan: 3
-    implicitWidth: parent.width
-    implicitHeight: parent.heigth / 4
     radius: 8
     color: ColorsHellwal.color9
 
     RowLayout {
-        anchors {
-            fill: parent
-            topMargin: 4
-            leftMargin: 4
-            rightMargin: 4
-            bottomMargin: 4
-        }
-
+        anchors.fill: parent
         spacing: 16
 
         Row { Layout.fillWidth: true }

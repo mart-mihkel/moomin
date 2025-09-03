@@ -1,81 +1,76 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Services.Mpris
 
 Rectangle {
-    Layout.columnSpan: 3
-    implicitWidth: parent.width
-    implicitHeight: parent.heigth / 4
+    id: root
     radius: 8
     color: ColorsHellwal.color9
+
+    readonly property list<MprisPlayer> players: Mpris.players.values
+    readonly property MprisPlayer player: players[0]
+
+    function lengthStr(length: int): string {
+        if (length < 0)
+            return "-1:-1";
+
+        const hours = Math.floor(length / 3600);
+        const mins = Math.floor((length % 3600) / 60);
+        const secs = Math.floor(length % 60).toString().padStart(2, "0");
+
+        if (hours > 0) {
+            return `${hours}:${mins.toString().padStart(2, "0")}:${secs}`;
+        }
+
+        return `${mins}:${secs}`;
+    }
+
 
     GridLayout {
         anchors {
             fill: parent
-            topMargin: 4
-            leftMargin: 4
-            rightMargin: 4
-            bottomMargin: 4
+            topMargin: 8
+            leftMargin: 8
+            rightMargin: 8
+            bottomMargin: 8
         }
 
         rowSpacing: 4
-        columnSpacing: 4
+        columnSpacing: 8
         rows: 3
         columns: 3
 
         Rectangle {
-            Layout.rowSpan: 3
-            implicitWidth: parent.width / 3 - 2
-            implicitHeight: parent.heigth / 1
+            Layout.rowSpan: 4
+            implicitWidth: parent.width / 3
+            implicitHeight: parent.heigth * 1
             radius: 8
             color: ColorsHellwal.color3
         }
 
-        RowLayout {
-            Layout.columnSpan: 2
-            implicitWidth: parent.width * 2 / 3 - 2
-
-            Text {
-                text: "Tiffer"
-                font.family: Config.font.family.mono
-                font.pointSize: 12
-                color: ColorsHellwal.foreground
+        Text {
+            font {
+                bold: true
+                pointSize: 12
+                family: Config.font.family.mono
             }
+
+            text: player?.trackTitle
+            Layout.columnSpan: 2
+            color: ColorsHellwal.foreground
+        }
+
+        Text {
+            text: player?.trackArtist
+            font.family: Config.font.family.mono
+            color: ColorsHellwal.foreground
         }
 
         RowLayout {
             Layout.columnSpan: 2
-            implicitWidth: parent.width * 2 / 3 - 2
 
             Text {
-                text: "Ursula"
-                font.family: Config.font.family.mono
-                color: ColorsHellwal.foreground
-            }
-
-            Row { Layout.fillWidth: true }
-
-            MaterialIcon {
-                text: "keyboard_double_arrow_left"
-                color: ColorsHellwal.foreground
-            }
-
-            MaterialIcon {
-                text: "resume"
-                color: ColorsHellwal.foreground
-            }
-
-            MaterialIcon {
-                text: "keyboard_double_arrow_right"
-                color: ColorsHellwal.foreground
-            }
-        }
-
-        RowLayout {
-            Layout.columnSpan: 2
-            implicitWidth: parent.width * 2 / 3 - 2
-
-            Text {
-                text: "1:21"
+                text: root.lengthStr(player?.position)
                 font.family: Config.font.family.mono
                 color: ColorsHellwal.foreground
             }
@@ -93,14 +88,14 @@ Rectangle {
                         bottom: parent.bottom
                     }
 
-                    implicitWidth: 50
+                    implicitWidth: parent.width * (player?.position / player?.length)
                     radius: parent.radius
-                    color: ColorsHellwal.color10
+                    color: ColorsHellwal.color11
                 }
             }
 
             Text {
-                text: "3:52"
+                text: root.lengthStr(player?.length)
                 font.family: Config.font.family.mono
                 color: ColorsHellwal.foreground
             }
