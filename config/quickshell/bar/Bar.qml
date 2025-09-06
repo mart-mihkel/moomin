@@ -15,6 +15,7 @@ PanelWindow {
     id: root
     color: "transparent"
     implicitWidth: 16 + 8*2 + 8*2
+    exclusiveZone: 32
 
     RectangularShadow {
         anchors.fill: barRect

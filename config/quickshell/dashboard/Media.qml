@@ -18,9 +18,8 @@ Rectangle {
         rows: 2
         columns: 2
 
-        Button {
+        WifiButton {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            icon: "wifi"
         }
 
         Button {

@@ -32,7 +32,7 @@ Scope {
                 anchors {
                     fill: parent
                     topMargin: 8
-                    leftMargin: 8
+                    leftMargin: 24
                     rightMargin: 8
                     bottomMargin: 32
                 }
