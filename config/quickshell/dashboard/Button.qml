@@ -13,7 +13,7 @@ Rectangle {
     implicitWidth: 32
     implicitHeight: 32
     radius: 16
-    color: mouse.containsMouse ? Colors.color11 : Colors.color3
+    color: mouse.containsMouse ? Colors.color10 : Colors.color2
 
     Icon {
         anchors.horizontalCenter: parent.horizontalCenter

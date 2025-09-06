@@ -7,7 +7,7 @@ import "../util"
 Rectangle {
     id: root
     radius: 8
-    color: Colors.color9
+    color: Colors.color8
 
     readonly property list<MprisPlayer> players: Mpris.players.values
     readonly property MprisPlayer player: players[0] ?? null
@@ -69,6 +69,14 @@ Rectangle {
                 anchors.fill: image
             }
 
+            Rectangle {
+                width: image.width
+                height: image.height
+                radius: 8
+                visible: player?.trackArtUrl == null
+                color: Colors.color2
+            }
+
             Item {
                 id: mask
                 visible: false
@@ -126,7 +134,7 @@ Rectangle {
                     Layout.fillWidth: true
                     implicitHeight: 8
                     radius: 16
-                    color: Colors.color3
+                    color: Colors.color2
 
                     Rectangle {
                         anchors {
@@ -137,7 +145,7 @@ Rectangle {
 
                         implicitWidth: parent.width * (player?.position / player?.length)
                         radius: parent.radius
-                        color: Colors.color11
+                        color: Colors.color10
                     }
                 }
 

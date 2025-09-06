@@ -5,7 +5,7 @@ import "../util"
 
 Rectangle {
     radius: 8
-    color: Colors.color9
+    color: Colors.color8
 
     Column {
         anchors {
