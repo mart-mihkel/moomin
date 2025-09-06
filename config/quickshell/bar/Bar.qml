@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
 import Quickshell
+import Quickshell.Widgets
 import "../util"
 
 PanelWindow {
@@ -36,19 +37,43 @@ PanelWindow {
         ColumnLayout {
             anchors {
                 fill: parent
-                topMargin: 8
-                leftMargin: 8
-                rightMargin: 8
-                bottomMargin: 8
+                topMargin: 4
+                leftMargin: 4
+                rightMargin: 4
+                bottomMargin: 4
             }
 
-            spacing: 16
+            spacing: 4
 
-            Workspaces {}
-            Tray {}
+            WrapperRectangle {
+                margin: 4
+                radius: 4
+                color: Colors.color8
+                child: Workspaces {}
+            }
+
+            WrapperRectangle {
+                margin: 4
+                radius: 4
+                color: Colors.color8
+                child: Tray {}
+            }
+
             Column { Layout.fillHeight: true }
-            Time {}
-            Dashboard {}
+
+            WrapperRectangle {
+                margin: 4
+                radius: 4
+                color: Colors.color8
+                child: Time {}
+            }
+
+            WrapperRectangle {
+                margin: 4
+                radius: 4
+                color: Colors.color8
+                child: Dashboard {}
+            }
         }
     }
 }

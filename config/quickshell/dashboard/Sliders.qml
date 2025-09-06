@@ -5,7 +5,7 @@ import "../util"
 
 Rectangle {
     radius: 8
-    color: Colors.color9
+    color: Colors.color8
 
     PwObjectTracker {
         objects: [ Pipewire.defaultAudioSink ]
@@ -33,7 +33,7 @@ Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 8
-                color: Colors.color3
+                color: Colors.color2
 
                 Rectangle {
                     anchors {
@@ -44,7 +44,7 @@ Rectangle {
 
                     implicitWidth: parent.width * (Pipewire.defaultAudioSink?.audio.volume ?? 0)
                     radius: parent.radius
-                    color: Colors.color11
+                    color: Colors.color10
                 }
             }
         }
@@ -62,7 +62,7 @@ Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 8
                 radius: 8
-                color: Colors.color3
+                color: Colors.color2
 
                 Rectangle {
                     anchors {
@@ -73,7 +73,7 @@ Rectangle {
 
                     implicitWidth: parent.width * 0.75
                     radius: parent.radius
-                    color: Colors.color11
+                    color: Colors.color10
                 }
             }
         }
