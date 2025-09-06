@@ -27,9 +27,8 @@ Rectangle {
             icon: "bluetooth"
         }
 
-        Button {
+        MicButton {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            icon: "mic"
         }
 
         Button {

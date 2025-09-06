@@ -4,9 +4,6 @@ import "../services"
 import "../util"
 
 Rectangle {
-    readonly property string icon: "wifi"
-    readonly property string command: "exit"
-
     id: root
     implicitWidth: 32
     implicitHeight: 32
@@ -16,7 +13,7 @@ Rectangle {
     Icon {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        icon: root.icon
+        icon: Network.wifiEnabled ? "wifi" : "wifi_off"
     }
 
     MouseArea {
