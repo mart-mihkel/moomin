@@ -1,0 +1,51 @@
+{
+  "logo": {
+    "source": "~/.config/fastfetch/moomin.txt"
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    {
+      "type": "kernel",
+      "format": "{release}"
+    },
+    "uptime",
+    {
+      "type": "packages",
+      "combined": true
+    },
+    "shell",
+    {
+      "type": "display",
+      "compactType": "original",
+      "key": "Resolution"
+    },
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "terminal",
+    {
+      "type": "terminalfont",
+      "format": "{/name}{-}{/}{name}{?size} {size}{?}"
+    },
+    {
+      "type": "cpu",
+      "format": "{name}"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU",
+      "format": "{name}"
+    },
+    {
+      "type": "memory",
+      "format": "{used} / {total}"
+    },
+    "break",
+    "colors"
+  ]
+}
