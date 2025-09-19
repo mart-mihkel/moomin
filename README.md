@@ -1,8 +1,9 @@
 # Moomin
 
-Moomin Themed Linux Rice! What! That's insane!
+Moomin Themed Linux Rice!
 
 > [!WARNING]
-> Work in progress lad!
+> Work in progress!
 
-![snufkin](./assets/screenshots/snufkin-1.png)
+![fetch](./assets/screenshots/fetch.png)
+![lock](./assets/screenshots/lock.png)

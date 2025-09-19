@@ -1,0 +1,79 @@
+{
+  "logo": {
+    "source": "~/.config/fastfetch/moomin.txt"
+  },
+  "modules": [
+    "break",
+    "title",
+    "break",
+    {
+      "type": "os",
+      "key": "OS "
+    },
+    {
+      "type": "kernel",
+      "key": "KER"
+    },
+    {
+      "type": "packages",
+      "key": "PKG"
+    },
+    "break",
+    {
+      "type": "cpu",
+      "key": "CPU",
+      "format": "{name}"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU",
+      "format": "{name}"
+    },
+    {
+      "type": "memory",
+      "key": "RAM"
+    },
+    {
+      "type": "disk",
+      "key": "DU "
+    },
+    "break",
+    {
+      "type": "uptime",
+      "key": "UP "
+    },
+    {
+      "type": "battery",
+      "key": "BAT",
+      "format": "{capacity}, {time-formatted}"
+    },
+    {
+      "type": "editor",
+      "key": "TXT"
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": "WM "
+    },
+    {
+      "type": "shell",
+      "key": "SH "
+    },
+    {
+      "type": "terminal",
+      "key": "TER"
+    },
+    {
+      "type": "colors",
+      "key": "COL",
+      "block": {
+        "range": [
+          1,
+          6
+        ]
+      }
+    },
+    "break"
+  ]
+}
