@@ -1,0 +1,14 @@
+[general]
+import = ["~/.cache/hellwal/colors.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "JetBrainsMono" }
+size = 12.0
+
+[window]
+padding = { x = 8, y = 8 }
+dynamic_padding = true
+opacity = 0.9
