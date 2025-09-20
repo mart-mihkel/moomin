@@ -1,0 +1,64 @@
+* {
+  all: unset;
+}
+
+#tray menu,
+tooltip {
+  color: #%% foreground %%;
+  background-color: #%% background %%;
+  font-size: 14px;
+  font-family: JetBrainsMono;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+#clock,
+#workspaces {
+  color: #%% foreground %%;
+  font-size: 14px;
+  font-family: JetBrainsMono;
+}
+
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#battery,
+#backlight,
+#wireplumber {
+  color: #%% foreground %%;
+  font-size: 16px;
+  font-family: Material Symbols Rounded;
+}
+
+#cpu.warning
+#memory.warning,
+#battery.warning {
+  color: #ebcb8b;
+}
+
+#cpu.critical,
+#memory.critical,
+#battery.critical {
+  color: #bf616a;
+}
+
+#pulseaudio-slider,
+#backlight-slider {
+  margin-top: 4px;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-width: 6px;
+  min-height: 40px;
+  border-radius: 8px;
+  background-color: #%% color8.hex %%;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  min-width: 6px;
+  border-radius: 8px;
+  background-color: #%% color9.hex %%;
+}

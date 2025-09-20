@@ -1,0 +1,129 @@
+{
+  "position": "left",
+  "margin-top": 24,
+  "margin-left": 8,
+  "margin-right": -8,
+  "margin-bottom": 24,
+  "modules-left": [
+    "clock",
+    "cpu",
+    "memory"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "tray",
+    "network",
+    "bluetooth",
+    "battery",
+    "backlight/slider",
+    "backlight",
+    "pulseaudio/slider",
+    "wireplumber#audio",
+    "wireplumber#microphone"
+  ],
+  "clock": {
+    "format": "{:%H\n%M}"
+  },
+  "cpu": {
+    "format": "memory",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "format": "memory_alt",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-charging": "bolt",
+    "format-plugged": "battery_charging_full",
+    "format-icons": [
+      "battery_0_bar",
+      "battery_1_bar",
+      "battery_2_bar",
+      "battery_3_bar",
+      "battery_4_bar",
+      "battery_5_bar",
+      "battery_6_bar",
+      "battery_full"
+    ],
+    "states": {
+      "warning": 30,
+      "critical": 15
+    }
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}"
+  },
+  "tray": {
+    "show-passive-items": true,
+    "icon-size": 14,
+    "spacing": 6
+  },
+  "network": {
+    "format-disabled": "",
+    "format-wifi": "{icon}",
+    "format-ethernet": "lan",
+    "format-disconnected": "signal_wifi_off",
+    "format-icons": [
+      "signal_wifi_0_bar",
+      "network_wifi_1_bar",
+      "network_wifi_2_bar",
+      "network_wifi_3_bar",
+      "signal_wifi_4_bar"
+    ],
+    "on-click": "alacritty -e impala"
+  },
+  "bluetooth": {
+    "format-disabled": "",
+    "format-on": "bluetooth",
+    "format-no-controller": "",
+    "format-off": "bluetooth_disabled",
+    "format-connected": "bluetooth_connected",
+    "on-click": "alacritty -e bluetui"
+  },
+  "backlight/slider": {
+    "orientation": "vertical"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": [
+      "brightness_empty",
+      "brightness_5",
+      "brightness_7"
+    ]
+  },
+  "pulseaudio/slider": {
+    "orientation": "vertical"
+  },
+  "wireplumber#audio": {
+    "format": "{icon}",
+    "format-muted": "volume_off",
+    "format-bluetooth": "media_bluetooth_on",
+    "format-bluetooth-muted": "media_bluetooth_off",
+    "format-icons": {
+      "headset": "headphones",
+      "headphone": "headphones",
+      "hands-free": "headphones",
+      "default": [
+        "volume_mute",
+        "volume_down",
+        "volume_up"
+      ]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "wireplumber#microphone": {
+    "format-source": "mic",
+    "format": "{format_source}",
+    "format-source-muted": "mic_off",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  }
+}
