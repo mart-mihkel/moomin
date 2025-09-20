@@ -2,13 +2,13 @@ configuration {
     show-icons: true;
     display-run: " ";
     display-drun: " ";
-    display-emoji: "󰱨 ";
+    display-wallpaper: " ";
     display-filebrowser: " ";
     drun-display-format: "{name}";
-    modi: "drun,run,emoji,filebrowser";
+    modi: "drun,emoji,wallpaper,filebrowser";
 }
 
-@import "~/.cache/hellwal/rofi.rasi"
+@import "~/.cache/hellwal/colors.rasi"
 
 * {
     font: "JetBrainsMono NerdFont 10";
