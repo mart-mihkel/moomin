@@ -1,0 +1,8 @@
+* {
+    background-alt: #%% background.color8 %%;
+    background: #%% background.hex %%;
+    foreground: #%% foreground.hex %%;
+    selected: #%% color8.hex %%;
+    active: #%% color2.hex %%;
+    urgent: #%% color1.hex %%;
+}
