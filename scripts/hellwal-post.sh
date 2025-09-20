@@ -3,8 +3,10 @@
 CACHE=$HOME/.cache/hellwal
 CONFIG=$HOME/.config
 
+mkdir -p $CONFIG/dunst
+
 cp $CACHE/waybar.css $CONFIG/waybar/style.css
-cp $CACHE/dunstrc $CONFIG/dunst/dunstrc
+cp $CACHE/dunst.toml $CONFIG/dunst/dunstrc
 
 pkill -SIGUSR2 waybar
 dunstctl reload
