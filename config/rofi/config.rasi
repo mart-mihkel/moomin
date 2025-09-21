@@ -1,5 +1,4 @@
 configuration {
-    show-icons: true;
     display-run: " ";
     display-drun: " ";
     display-wallpaper: " ";

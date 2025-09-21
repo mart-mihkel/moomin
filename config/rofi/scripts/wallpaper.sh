@@ -20,7 +20,4 @@ if [ ! -z $1 ]; then
     exit 0
 fi
 
-for WALLPAPER in $WALLS/*; do
-    BN=$(basename $WALLPAPER)
-    echo -e "${BN}\0icon\x1f${WALLPAPER}"
-done
+ls $WALLS
