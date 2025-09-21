@@ -1,10 +1,9 @@
 # Moomin
 
-Moomin Themed Linux Rice!
+Moomin themed Linux rice!
 
-> [!WARNING]
-> Work in progress!
-
-![groke](./assets/screenshots/groke.png)
-![lock](./assets/screenshots/lock.png)
-![fetch](./assets/screenshots/fetch.png)
+<p align="center">
+  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/floating.png?raw=true" />
+  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/fetch.png?raw=true" />
+  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/lock.png?raw=true" />
+</p>

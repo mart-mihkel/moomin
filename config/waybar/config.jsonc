@@ -1,72 +1,18 @@
 {
+  "spacing": 4,
   "position": "left",
-  "margin-top": 24,
-  "margin-left": 8,
-  "margin-right": -8,
-  "margin-bottom": 24,
   "modules-left": [
-    "clock",
-    "cpu",
-    "memory"
+    "network",
+    "bluetooth",
+    "battery"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "tray",
-    "network",
-    "bluetooth",
-    "battery",
-    "backlight/slider",
-    "backlight",
-    "pulseaudio/slider",
-    "wireplumber#audio",
-    "wireplumber#microphone"
+    "custom/clock",
+    "clock"
   ],
-  "clock": {
-    "format": "{:%H\n%M}"
-  },
-  "cpu": {
-    "format": "memory",
-    "states": {
-      "warning": 75,
-      "critical": 90
-    }
-  },
-  "memory": {
-    "format": "memory_alt",
-    "states": {
-      "warning": 75,
-      "critical": 90
-    }
-  },
-  "battery": {
-    "format": "{icon}",
-    "format-charging": "bolt",
-    "format-plugged": "battery_charging_full",
-    "format-icons": [
-      "battery_0_bar",
-      "battery_1_bar",
-      "battery_2_bar",
-      "battery_3_bar",
-      "battery_4_bar",
-      "battery_5_bar",
-      "battery_6_bar",
-      "battery_full"
-    ],
-    "states": {
-      "warning": 30,
-      "critical": 15
-    }
-  },
-  "hyprland/workspaces": {
-    "format": "{icon}"
-  },
-  "tray": {
-    "show-passive-items": true,
-    "icon-size": 14,
-    "spacing": 6
-  },
   "network": {
     "format-disabled": "",
     "format-wifi": "{icon}",
@@ -79,6 +25,7 @@
       "network_wifi_3_bar",
       "signal_wifi_4_bar"
     ],
+    "tooltip-format-wifi": "{essid} - {signalStrength}%",
     "on-click": "alacritty -e impala"
   },
   "bluetooth": {
@@ -87,43 +34,48 @@
     "format-no-controller": "",
     "format-off": "bluetooth_disabled",
     "format-connected": "bluetooth_connected",
+    "tooltip-format-connected": "{device_alias}",
+    "tooltip-format-connected-battery": "{device_alias} - {device_battery_percentage}%",
     "on-click": "alacritty -e bluetui"
   },
-  "backlight/slider": {
-    "orientation": "vertical"
-  },
-  "backlight": {
+  "battery": {
     "format": "{icon}",
     "format-icons": [
-      "brightness_empty",
-      "brightness_5",
-      "brightness_7"
-    ]
+      "battery_alert",
+      "battery_0_bar",
+      "battery_1_bar",
+      "battery_2_bar",
+      "battery_3_bar",
+      "battery_4_bar",
+      "battery_5_bar",
+      "battery_6_bar",
+      "battery_full"
+    ],
+    "tooltip-format": "{timeTo} - {capacity}%",
+    "on-click": "alacritty -e btop",
+    "states": {
+      "plugged": 100,
+      "normal": 80,
+      "warning": 20,
+      "critical": 10
+    }
   },
-  "pulseaudio/slider": {
-    "orientation": "vertical"
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": 4
+    }
   },
-  "wireplumber#audio": {
-    "format": "{icon}",
-    "format-muted": "volume_off",
-    "format-bluetooth": "media_bluetooth_on",
-    "format-bluetooth-muted": "media_bluetooth_off",
-    "format-icons": {
-      "headset": "headphones",
-      "headphone": "headphones",
-      "hands-free": "headphones",
-      "default": [
-        "volume_mute",
-        "volume_down",
-        "volume_up"
-      ]
-    },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  "custom/clock": {
+    "format": "calendar_clock",
+    "interval": "once"
   },
-  "wireplumber#microphone": {
-    "format-source": "mic",
-    "format": "{format_source}",
-    "format-source-muted": "mic_off",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  "clock": {
+    "format": "{:%H\n%M}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "format": {
+        "today": "<u>{}</u>"
+      }
+    }
   }
 }

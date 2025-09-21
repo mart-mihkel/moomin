@@ -1,6 +1,6 @@
 configuration {
-    display-run: " ";
     display-drun: " ";
+    display-emoji: "󰚜 ";
     display-wallpaper: " ";
     display-filebrowser: " ";
     drun-display-format: "{name}";
@@ -16,11 +16,10 @@ configuration {
 window {
     width: 500px;
     height: 100%;
-    x-offset: -16;
-    anchor: west;
-    location: west;
+    anchor: east;
+    location: east;
     border-radius: 0;
-    border: 0px 2px 0px 0px;
+    border: 0px 0px 0px 2px;
     background-color: @background;
 }
 
@@ -28,7 +27,7 @@ mainbox {
     enabled: true;
     orientation: vertical;
     background-color: transparent;
-    children: [ "inputbar", "listbox", "mode-switcher" ];
+    children: ["inputbar", "listbox", "mode-switcher"];
 }
 
 listbox {
@@ -36,7 +35,7 @@ listbox {
     padding: 15px;
     orientation: vertical;
     background-color: transparent;
-    children: [ "message", "listview" ];
+    children: ["message", "listview"];
 }
 
 inputbar {

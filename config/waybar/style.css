@@ -4,16 +4,24 @@
   all: unset;
 }
 
-#tray menu,
-tooltip {
-  padding: 2px;
-  font-size: 14px;
-  border-radius: 8px;
-  color: @foreground;
-  font-family: JetBrainsMono;
-  background-color: @background;
+#waybar {
+  background-color: transparent;
 }
 
+tooltip > box,
+#waybar > box {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: @background;
+  box-shadow: 0 0 2px @foreground;
+}
+
+#waybar > box {
+  padding: 8px;
+  margin: 24px 8px 24px 12px;
+}
+
+tooltip,
 #clock,
 #workspaces {
   font-size: 14px;
@@ -21,46 +29,27 @@ tooltip {
   font-family: JetBrainsMono;
 }
 
-#cpu,
-#memory,
+#workspaces button.active {
+  color: @color7;
+}
+
+#custom-clock,
 #network,
 #bluetooth,
-#battery,
-#backlight,
-#wireplumber {
+#battery {
   font-size: 16px;
   color: @foreground;
   font-family: Material Symbols Rounded;
 }
 
-#cpu.warning
-#memory.warning,
+#battery.plugged {
+  color: #a3be8c;
+}
+
 #battery.warning {
   color: #ebcb8b;
 }
 
-#cpu.critical,
-#memory.critical,
 #battery.critical {
   color: #bf616a;
-}
-
-#pulseaudio-slider,
-#backlight-slider {
-  margin-top: 4px;
-}
-
-#pulseaudio-slider trough,
-#backlight-slider trough {
-  min-width: 6px;
-  min-height: 40px;
-  border-radius: 8px;
-  background-color: @color8;
-}
-
-#pulseaudio-slider highlight,
-#backlight-slider highlight {
-  min-width: 6px;
-  border-radius: 8px;
-  background-color: @color9;
 }
