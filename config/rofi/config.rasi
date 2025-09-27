@@ -45,7 +45,7 @@ inputbar {
     padding: 40px 40px 155px;
     background-color: transparent;
     children: ["textbox-prompt-colon", "entry"];
-    background-image: url("~/Pictures/walls/hattifnattar.png", width);
+    background-image: url("~/Pictures/walls/moomin-storm.png", width);
 }
 
 textbox-prompt-colon {
