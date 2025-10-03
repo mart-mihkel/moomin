@@ -18,7 +18,7 @@ tooltip > box,
 
 #waybar > box {
   padding: 8px;
-  margin: 24px 8px 24px 12px;
+  margin: 24px 2px 24px 18px;
 }
 
 tooltip,

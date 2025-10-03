@@ -1,5 +1,6 @@
 {
   "spacing": 4,
+  "reload_style_on_change": true,
   "position": "left",
   "modules-left": [
     "network",
@@ -7,7 +8,8 @@
     "battery"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "niri/workspaces"
   ],
   "modules-right": [
     "custom/clock",
@@ -41,7 +43,6 @@
   "battery": {
     "format": "{icon}",
     "format-icons": [
-      "battery_alert",
       "battery_0_bar",
       "battery_1_bar",
       "battery_2_bar",
@@ -54,8 +55,6 @@
     "tooltip-format": "{timeTo} - {capacity}%",
     "on-click": "alacritty -e btop",
     "states": {
-      "plugged": 100,
-      "normal": 80,
       "warning": 20,
       "critical": 10
     }

@@ -8,12 +8,13 @@ if [ ! -z $1 ]; then
     WALLPAPER=$WALLS/$1
     coproc (
         hellwal -l -i $WALLPAPER
-        swww img $WALLPAPER -t fade
+        swww img $WALLPAPER \
+            --transition-type grow \
+            --transition-duration 2 \
+            --transition-fps 60
 
         mkdir -p $CONFIG/dunst
         cp $CACHE/dunst.toml $CONFIG/dunst/dunstrc
-
-        pkill -SIGUSR2 waybar
         dunstctl reload
     )
 
