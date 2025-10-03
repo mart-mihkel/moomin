@@ -1,10 +1,8 @@
 configuration {
     display-drun: " ";
-    display-emoji: "󰚜 ";
     display-wallpaper: " ";
-    display-filebrowser: " ";
     drun-display-format: "{name}";
-    modi: "drun,emoji,wallpaper,filebrowser";
+    modes: [drun, wallpaper];
 }
 
 @import "~/.cache/hellwal/colors.rasi"
@@ -14,127 +12,64 @@ configuration {
 }
 
 window {
-    width: 500px;
+    width: 512px;
     height: 100%;
     anchor: east;
     location: east;
     border-radius: 0;
-    border: 0px 0px 0px 2px;
+    border: 0 0 0 1px;
     background-color: @background;
 }
 
 mainbox {
     enabled: true;
-    orientation: vertical;
     background-color: transparent;
-    children: ["inputbar", "listbox", "mode-switcher"];
-}
-
-listbox {
-    spacing: 15px;
-    padding: 15px;
-    orientation: vertical;
-    background-color: transparent;
-    children: ["message", "listview"];
+    children: [inputbar, listview, mode-switcher];
 }
 
 inputbar {
-    spacing: 10px;
-    orientation: horizontal;
+    spacing: 8px;
     text-color: @foreground;
-    padding: 40px 40px 155px;
+    padding: 32px 32px 128px;
     background-color: transparent;
-    children: ["textbox-prompt-colon", "entry"];
-    background-image: url("~/Pictures/walls/moomin-storm.png", width);
+    children: [textbox-prompt-colon, entry];
+    background-image: url("~/Pictures/walls/hattifnattar.png", width);
 }
 
 textbox-prompt-colon {
     str: "";
-    expand: false;
-    padding: 12px 15px;
+    padding: 12px 16px;
     border-radius: 4px;
     text-color: inherit;
     background-color: @background-alt;
 }
 
 entry {
-    expand: true;
-    cursor: text;
     padding: 12px 16px;
     border-radius: 4px;
     text-color: inherit;
     placeholder: "Search";
-    placeholder-color: inherit;
     background-color: @background-alt;
-}
-
-dummy {
-    expand: true;
-    background-color: transparent;
-}
-
-mode-switcher {
-    padding: 15px;
-    spacing: 10px;
-    text-color: @foreground;
-    background-color: transparent;
-}
-
-button {
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    text-color: inherit;
-    background-color: @background-alt;
-}
-
-button selected {
-    background-color: @selected;
-    text-color: @foreground;
 }
 
 listview {
     border: 0;
-    lines: 10;
-    columns: 1;
-    cycle: true;
-    spacing: 10px;
-    dynamic: true;
-    reverse: false;
+    spacing: 8px;
+    padding: 16px;
     scrollbar: false;
-    layout: vertical;
-    cursor: "default";
-    fixed-height: true;
-    fixed-columns: true;
     text-color: @foreground;
     background-color: transparent;
 }
 
 element {
     padding: 8px;
-    spacing: 10px;
-    cursor: pointer;
     border-radius: 4px;
-    text-color: @foreground;
-    background-color: transparent;
 }
 
 element normal.normal,
 element alternate.normal {
-    text-color: inherit;
-    background-color: inherit;
-}
-
-element normal.urgent,
-element alternate.urgent {
     text-color: @foreground;
-    background-color: @urgent;
-}
-
-element normal.active,
-element alternate.active {
-    text-color: @foreground;
-    background-color: @active;
+    background-color: transparent;
 }
 
 element selected.normal {
@@ -142,48 +77,20 @@ element selected.normal {
     background-color: @selected;
 }
 
-element selected.urgent {
-    text-color: @foreground;
-    background-color: @urgent;
-}
-
-element selected.active {
-    text-color: @foreground;
-    background-color: @urgent;
-}
-
-element-icon {
-    size: 24px;
-    cursor: inherit;
-    text-color: inherit;
+mode-switcher {
+    spacing: 8px;
+    padding: 16px;
     background-color: transparent;
 }
 
-element-text {
-    cursor: inherit;
-    text-color: inherit;
-    vertical-align: 0.5;
-    horizontal-align: 0.0;
-    background-color: transparent;
-}
-
-message {
-    border: 0;
-    background-color: transparent;
-}
-
-textbox {
-    padding: 12px;
+button {
+    padding: 8px;
     border-radius: 4px;
-    vertical-align: 0.5;
-    horizontal-align: 0.0;
     text-color: @foreground;
     background-color: @background-alt;
 }
 
-error-message {
-    padding: 12px;
-    border-radius: 4px;
+button selected {
     text-color: @foreground;
-    background-color: @background;
+    background-color: @selected;
 }
