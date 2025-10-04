@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+CONFIG=~/.config
+WALLS=~/Pictures/walls
+CACHE=~/.cache/thumbnails/walls
+CFG=~/.config/rofi/walls.rasi
+
+mkdir -p $WALLS
+mkdir -p $CACHE
+
+for WALL in $WALLS/*; do
+    BASENAME=$(basename $WALL)
+    THUMB=$CACHE/$BASENAME
+    if [ ! -f $THUMB ]; then
+        magick convert \
+            -strip $WALL \
+            -thumbnail x540^ \
+            -gravity center \
+            -extent 262x540 \
+            $THUMB
+    fi
+done
+
+WALLPAPER=$(for WALL in $WALLS/*; do echo -en "$WALL\0icon\x1f$CACHE/$(basename $WALL)\n"; done | rofi -dmenu -config $CFG)
+
+if [ ! -z $WALLPAPER ]; then
+    hellwal -l -i $WALLPAPER
+    swww img $WALLPAPER \
+        --transition-type grow \
+        --transition-duration 2 \
+        --transition-fps 60
+
+    mkdir -p $CONFIG/dunst
+    cp ~/.cache/hellwal/dunst.toml $CONFIG/dunst/dunstrc
+    dunstctl reload
+fi
