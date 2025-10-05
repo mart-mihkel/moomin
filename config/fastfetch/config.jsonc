@@ -1,51 +1,81 @@
 {
   "logo": {
-    "source": "~/.config/fastfetch/moomin.txt"
+    "source": "~/.config/fastfetch/moomin-icon.png",
+    "height": 14,
+    "padding": {
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": "",
+    "constants": [
+      "────────────────────────────────────"
+    ],
+    "key": {
+      "paddingLeft": 2,
+      "width": 8
+    }
   },
   "modules": [
-    "title",
-    "separator",
-    "os",
-    "host",
-    {
-      "type": "kernel",
-      "format": "{release}"
-    },
-    "uptime",
-    {
-      "type": "packages",
-      "combined": true
-    },
-    "shell",
-    {
-      "type": "display",
-      "compactType": "original",
-      "key": "Resolution"
-    },
-    "de",
-    "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "terminal",
-    {
-      "type": "terminalfont",
-      "format": "{/name}{-}{/}{name}{?size} {size}{?}"
-    },
-    {
-      "type": "cpu",
-      "format": "{name}"
-    },
-    {
-      "type": "gpu",
-      "key": "GPU",
-      "format": "{name}"
-    },
-    {
-      "type": "memory",
-      "format": "{used} / {total}"
-    },
     "break",
-    "colors"
+    {
+      "type": "title",
+      "format": "               {user-name-colored}{at-symbol-colored}{host-name-colored}"
+    },
+    {
+      "type": "custom",
+      "format": "┌{$1}┐"
+    },
+    {
+      "key": "os",
+      "type": "os"
+    },
+    {
+      "key": "hst",
+      "type": "host"
+    },
+    {
+      "key": "krn",
+      "type": "kernel"
+    },
+    {
+      "key": "up",
+      "type": "uptime"
+    },
+    {
+      "key": "wm",
+      "type": "wm"
+    },
+    {
+      "key": "sh",
+      "type": "shell"
+    },
+    {
+      "key": "ter",
+      "type": "terminal"
+    },
+    {
+      "key": "cpu",
+      "format": "{name}",
+      "type": "cpu"
+    },
+    {
+      "key": "gpu",
+      "format": "{name}",
+      "type": "gpu"
+    },
+    {
+      "key": "mem",
+      "type": "memory"
+    },
+    {
+      "type": "custom",
+      "format": "└{$1}┘"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 12,
+      "symbol": "circle"
+    }
   ]
 }
