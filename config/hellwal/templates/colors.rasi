@@ -1,4 +1,5 @@
 * {
+    wallpaper: url("%% wallpaper %%", width);
     background-alt: #%% background.color8 %%;
     background: #%% background.hex %%;
     foreground: #%% foreground.hex %%;

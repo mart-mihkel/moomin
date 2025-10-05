@@ -1,0 +1,39 @@
+configuration {
+    show-icons: true;
+}
+
+window {
+    border: 0;
+    fullscreen: true;
+    background-color: #000000cc;
+}
+
+mainbox {
+    border: 0;
+    children: [listview];
+}
+
+listview {
+    border: 0;
+    columns: 7;
+    spacing: 16px;
+    flow: horizontal;
+    scrollbar: false;
+    padding: 24% 32px;
+}
+
+element {
+    padding: 0;
+    border-radius: 8px;
+    children: [element-icon];
+}
+
+element selected.normal {
+    border: 4px;
+    border-color: #000000cc;
+}
+
+element-icon {
+    size: 220px 530px;
+    horizontal-align: 0;
+}

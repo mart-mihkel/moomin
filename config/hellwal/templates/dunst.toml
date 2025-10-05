@@ -1,7 +1,7 @@
 [global]
 font = JetbrainsMono 10
 foreground = "#%% foreground %%"
-background = "#%% background.hex alpha=0.8 %%"
+background = "#%% background %%"
 
 height = (16, 256)
 width = (16, 512)
@@ -10,14 +10,17 @@ offset = (12, 12)
 min_icon_size = 64
 max_icon_size = 64
 corner_radius = 4
-frame_width = 0
+frame_width = 1
 gap_size = 8
 
 [urgency_low]
 timeout = 4
+frame_color = "#%% foreground %%"
 
 [urgency_normal]
 timeout = 8
+frame_color = "#ebcb8b"
 
 [urgency_critical]
 timeout = 16
+frame_color = "#bf616a"
