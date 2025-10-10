@@ -8,7 +8,7 @@ window {
     padding: 0;
     border: 1px;
     width: 60px;
-    height: 210px;
+    height: 260px;
     x-offset: 16px;
     location: west;
     anchor: center;
