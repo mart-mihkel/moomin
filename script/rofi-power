@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+ROFI_CFG=~/.config/rofi/power.rasi
+
+SHUTDOWN="mode_off_on"
+RESTART="refresh"
+SLEEP="dark_mode"
+LOCK="lock"
+
+PICK=$(printf "$SHUTDOWN\n$RESTART\n$SLEEP\n$LOCK" | rofi -dmenu -config $ROFI_CFG)
+
+case "$PICK" in
+    "$SHUTDOWN") poweroff ;;
+    "$RESTART") reboot ;;
+    "$SLEEP") systemctl suspend ;;
+    "$LOCK") hyprlock ;;
+    *) exit 0 ;;
+esac
