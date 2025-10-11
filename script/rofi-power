@@ -6,18 +6,16 @@ SHUTDOWN="mode_off_on"
 RESTART="refresh"
 SLEEP="dark_mode"
 LOCK="lock"
-LOGOUT="logout"
 
 PICK=$(
-    printf "$SHUTDOWN\n$RESTART\n$SLEEP\n$LOCK\n$LOGOUT" | \
+    printf "$LOCK\n$SLEEP\n$RESTART\n$SHUTDOWN" | \
     rofi -dmenu -config $ROFI_CFG
 )
 
 case "$PICK" in
-    "$SHUTDOWN") poweroff ;;
-    "$RESTART") reboot ;;
-    "$SLEEP") systemctl suspend ;;
     "$LOCK") hyprlock ;;
-    "$LOGOUT") hyprctld dispatch exit ;;
+    "$RESTART") reboot ;;
+    "$SHUTDOWN") poweroff ;;
+    "$SLEEP") systemctl suspend ;;
     *) exit 0 ;;
 esac

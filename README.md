@@ -1,13 +1,8 @@
 # Moomin
 
-Moomin themed Linux rice!
-
-<p align="center">
-  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/floating.png?raw=true" />
-  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/fetch.png?raw=true" />
-  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/wallpapers.png?raw=true" />
-  <img align="center" width="49%" src="https://github.com/mart-mihkel/moomin/blob/master/assets/screenshots/lock.png?raw=true" />
-</p>
+| ![](./assets/screenshots/floating.png) | ![](./assets/screenshots/zathura.png) |
+| -------------------------------------- | ------------------------------------- |
+| ![](./assets/screenshots/walls.png)    | ![](./assets/screenshots/rofi.png)    |
 
 ## Dependencies
 
@@ -18,7 +13,6 @@ Moomin themed Linux rice!
 | `hypridle`         | idle daemon          |
 | `alacritty`        | terminal             |
 | `waybar`           | status bar           |
-| `dunst`            | notification daemon  |
 | `swww`             | wallpaper daemon     |
 | `rofi`             | launcher             |
 | `hellwal`          | coloschemes          |

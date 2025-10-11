@@ -7,7 +7,7 @@ configuration {
 window {
     border: 0;
     fullscreen: true;
-    background-color: #00000001;
+    background-color: @background-opaque;
 }
 
 mainbox {
@@ -25,14 +25,13 @@ listview {
 
 element {
     padding: 0;
-    border: 2px;
-    border-radius: 8px;
+    border: 1px;
     children: [element-icon];
     border-color: @foreground;
 }
 
 element selected.normal {
-    border-color: @selected;
+    border: 2px;    
 }
 
 element-icon {

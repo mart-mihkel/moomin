@@ -1,47 +1,38 @@
 configuration {
     modes: [drun];
+    show-icons: true;
     drun-display-format: "{name}";
 }
 
 @import "~/.cache/hellwal/colors.rasi"
 
 * {
-    font: "JetBrainsMono NerdFont 10";
+    font: "JetBrainsMono 10";
 }
 
 window {
-    padding: 0;
-    border: 1px;
-    width: 400px;
-    height: 500px;
-    anchor: center;
-    location: center;
-    border-radius: 8px;
-    border-color: @foreground;
-    background-color: @background;
+    border: 0;
+    fullscreen: true;
+    background-color: @background-opaque;
 }
 
 mainbox {
+    padding: 25% 40%;
     background-color: transparent;
     children: [inputbar, listview];
 }
 
 inputbar {
     children: [entry];
+    padding: 16px 64px;
     text-color: @foreground;
-    padding: 32px 32px 128px;
-    background-image: @wallpaper;
-    background-color: transparent;
 }
 
 entry {
-    border: 1px;
-    padding: 12px 16px;
-    border-radius: 4px;
+    placeholder: "drun";
     text-color: inherit;
-    placeholder: "Search";
-    border-color: @selected;
-    background-color: @background-alt;
+    border-color: @foreground;
+    background-color: transparent;
 }
 
 listview {
@@ -55,7 +46,7 @@ listview {
 
 element {
     padding: 8px;
-    border-radius: 4px;
+    spacing: 16px;
 }
 
 element normal.normal,
@@ -66,5 +57,5 @@ element alternate.normal {
 
 element selected.normal {
     text-color: @foreground;
-    background-color: @selected;
+    background-color: @color8-opaque;
 }
