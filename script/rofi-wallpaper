@@ -18,7 +18,7 @@ for WALL in $WALLS/*; do
             -strip $WALL \
             -thumbnail x540^ \
             -gravity center \
-            -extent 262x540 \
+            -extent 330x500 \
             $THUMBNAIL
     fi
 done
