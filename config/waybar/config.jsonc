@@ -1,7 +1,8 @@
 {
   "spacing": 4,
-  "reload_style_on_change": true,
   "position": "left",
+  "margin-right": -16,
+  "reload_style_on_change": true,
   "modules-left": [
     "network",
     "bluetooth",

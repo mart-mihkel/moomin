@@ -1,32 +1,26 @@
 @import "~/.cache/hellwal/colors.rasi"
 
 * {
-    font: "Material Symbols Rounded 16";
+    font: "Material Symbols Rounded 48";
 }
 
 window {
-    padding: 0;
-    border: 1px;
-    width: 60px;
-    height: 260px;
-    x-offset: 16px;
-    location: west;
-    anchor: center;
-    border-radius: 8px;
-    border-color: @foreground;
-    background-color: @background;
+    border: 0;
+    fullscreen: true;
+    background-color: @background-opaque;
 }
 
 mainbox {
+    padding: 44% 33%;
     children: [listview];
     background-color: transparent;
 }
 
 listview {
     border: 0;
-    spacing: 8px;
-    padding: 8px;
+    spacing: 64px;
     scrollbar: false;
+    layout: horizontal;
     text-color: @foreground;
     background-color: transparent;
 }
@@ -36,8 +30,7 @@ element-text {
 }
 
 element {
-    padding: 8px;
-    border-radius: 4px;
+    padding: 16px 24px;
 }
 
 element normal.normal,
@@ -48,5 +41,5 @@ element alternate.normal {
 
 element selected.normal {
     text-color: @foreground;
-    background-color: @selected;
+    background-color: @color8-opaque;
 }

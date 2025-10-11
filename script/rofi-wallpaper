@@ -30,13 +30,9 @@ WALLPAPER=$(
 )
 
 if [ ! -z $WALLPAPER ]; then
-    hellwal -l -i $WALLPAPER
+    hellwal -l -i $WALLPAPER &
     swww img $WALLPAPER \
         --transition-type grow \
         --transition-duration 2 \
         --transition-fps 60
-
-    mkdir -p $CONFIG/dunst
-    cp $CACHE/hellwal/dunst.toml $CONFIG/dunst/dunstrc
-    dunstctl reload
 fi
