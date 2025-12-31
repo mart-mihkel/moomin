@@ -24,7 +24,7 @@
 ## Install
 
 > [!CAUTION]
-> Backup your current configs beforehand
+> Backup your configs beforehand
 
 ```bash
 mkdir -p ~/.config
@@ -32,9 +32,8 @@ mkdir -p ~/.local/bin
 mkdir -p ~/Pictures/walls
 
 cp -r config/* ~/.config
-cp script/* ~/.local/bin
+cp bin/* ~/.local/bin
 cp assets/walls/* ~/Pictures/walls
 ```
 
 Press `Mod+B` to run the wallpaper selector, it will take some time when starting for the first time.
-

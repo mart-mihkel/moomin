@@ -18,7 +18,7 @@ listview {
     border: 0;
     columns: 7;
     spacing: 12px;
-    padding: 24px;
+    padding: 275px 75px;
     scrollbar: false;
     flow: horizontal;
 }
@@ -31,7 +31,7 @@ element {
 }
 
 element selected.normal {
-    border: 2px;    
+    border: 2px;
 }
 
 element-icon {
