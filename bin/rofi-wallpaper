@@ -1,37 +1,31 @@
 #!/usr/bin/env bash
 
-CONFIG=~/.config
-CACHE=~/.cache
-
-WALLS=~/Pictures/walls
-THUMBNAILS=$CACHE/thumbnails/walls
-ROFI_CFG=$CONFIG/rofi/walls.rasi
+WALLS=~/Pictures/wallpapers
+THUMBNAILS=~/.cache/thumbnails/wallpapers
 
 mkdir -p $WALLS
-mkdir -p $CACHE
+mkdir -p $THUMBNAILS
 
 for WALL in $WALLS/*; do
-    BASENAME=$(basename $WALL)
-    THUMBNAIL=$THUMBNAILS/$BASENAME
     if [ ! -f $THUMBNAIL ]; then
         magick convert \
             -strip $WALL \
             -thumbnail x540^ \
             -gravity center \
             -extent 330x500 \
-            $THUMBNAIL
+            $THUMBNAILS/$(basename $WALL)
     fi
 done
 
-WALLPAPER=$(
+PICK=$(
     for WALL in $WALLS/*; do
         printf "$WALL\0icon\x1f$THUMBNAILS/$(basename $WALL)\n"
-    done | rofi -dmenu -config $ROFI_CFG
+    done | rofi -dmenu -config ~/.config/rofi/walls.rasi
 )
 
-if [ ! -z $WALLPAPER ]; then
-    hellwal -l -i $WALLPAPER &
-    swww img $WALLPAPER \
+if [ ! -z $PICK ]; then
+    hellwal -l -i $PICK &
+    swww img $PICK \
         --transition-type grow \
         --transition-duration 2 \
         --transition-fps 60

@@ -29,11 +29,11 @@
 ```bash
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
-mkdir -p ~/Pictures/walls
+mkdir -p ~/Pictures/wallpapers
 
 cp -r config/* ~/.config
 cp bin/* ~/.local/bin
-cp assets/walls/* ~/Pictures/walls
+cp assets/wallpapers/* ~/Pictures/wallpapers
 ```
 
 Press `Mod+B` to run the wallpaper selector, it will take some time when starting for the first time.
