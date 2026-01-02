@@ -1,7 +1,7 @@
 {
   "spacing": 4,
   "position": "left",
-  "margin-right": -16,
+  "margin-right": -8,
   "reload_style_on_change": true,
   "modules-left": [
     "network",
@@ -44,6 +44,7 @@
   "battery": {
     "format": "{icon}",
     "format-icons": [
+      "battery_alert",
       "battery_0_bar",
       "battery_1_bar",
       "battery_2_bar",
@@ -54,11 +55,7 @@
       "battery_full"
     ],
     "tooltip-format": "{timeTo} - {capacity}%",
-    "on-click": "alacritty -e btop",
-    "states": {
-      "warning": 20,
-      "critical": 10
-    }
+    "on-click": "alacritty -e btop"
   },
   "hyprland/workspaces": {
     "persistent-workspaces": {

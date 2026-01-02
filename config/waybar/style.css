@@ -8,16 +8,15 @@
   background-color: transparent;
 }
 
-tooltip>box,
 #waybar>box {
+  padding: 8px;
+  background-color: transparent;
+}
+
+tooltip>box {
   padding: 4px 8px;
   background-color: @background;
   box-shadow: 0 0 2px @foreground;
-}
-
-#waybar>box {
-  padding: 8px;
-  margin: 16px;
 }
 
 tooltip,
@@ -43,16 +42,4 @@ tooltip,
   font-size: 16px;
   color: @foreground;
   font-family: Material Symbols Rounded;
-}
-
-#battery.plugged {
-  color: #a3be8c;
-}
-
-#battery.warning {
-  color: #ebcb8b;
-}
-
-#battery.critical {
-  color: #bf616a;
 }
