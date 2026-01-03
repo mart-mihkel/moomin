@@ -11,7 +11,7 @@ window {
 }
 
 mainbox {
-    padding: 44% 33%;
+    padding: 44% 28%;
     children: [listview];
     background-color: transparent;
 }

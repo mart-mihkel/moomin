@@ -4,14 +4,16 @@ SHUTDOWN="mode_off_on"
 RESTART="refresh"
 SLEEP="dark_mode"
 LOCK="lock"
+EXIT="logout"
 
 PICK=$(
-    printf "$LOCK\n$SLEEP\n$RESTART\n$SHUTDOWN" | \
+    printf "$LOCK\n$EXIT\n$SLEEP\n$RESTART\n$SHUTDOWN" | \
     rofi -dmenu -config ~/.config/rofi/power.rasi
 )
 
 case "$PICK" in
     "$LOCK") hyprlock ;;
+    "$EXIT") hyprctl dispatch exit ;;
     "$RESTART") reboot ;;
     "$SHUTDOWN") poweroff ;;
     "$SLEEP") systemctl suspend ;;
