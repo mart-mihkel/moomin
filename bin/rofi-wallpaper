@@ -1,32 +1,18 @@
 #!/usr/bin/env bash
 
-WALLS=~/Pictures/wallpapers
-THUMBNAILS=~/.cache/thumbnails/wallpapers
-
-mkdir -p $WALLS
-mkdir -p $THUMBNAILS
-
-for WALL in $WALLS/*; do
-    if [ ! -f $THUMBNAIL ]; then
-        magick convert \
-            -strip $WALL \
-            -thumbnail x540^ \
-            -gravity center \
-            -extent 330x500 \
-            $THUMBNAILS/$(basename $WALL)
-    fi
-done
+WALLPAPERS=~/.cache/moomin/wallpapers
+THUMBNAILS=~/.cache/moomin/thumbnails
 
 PICK=$(
-    for WALL in $WALLS/*; do
+    for WALL in $WALLPAPERS/*; do
         printf "$WALL\0icon\x1f$THUMBNAILS/$(basename $WALL)\n"
     done | rofi -dmenu -config ~/.config/rofi/walls.rasi
 )
 
 if [ ! -z $PICK ]; then
     hellwal -l -i $PICK &
-    swww img $PICK \
-        --transition-type grow \
+    awww img $PICK \
+        --transition-type random \
         --transition-duration 2 \
         --transition-fps 60
 fi

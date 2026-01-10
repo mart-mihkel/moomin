@@ -13,7 +13,7 @@
 | `hypridle`         | idle daemon          |
 | `alacritty`        | terminal             |
 | `waybar`           | status bar           |
-| `swww`             | wallpaper daemon     |
+| `awww`             | wallpaper daemon     |
 | `rofi`             | launcher             |
 | `hellwal`          | coloschemes          |
 | `fastfetch`        | system info          |
@@ -23,17 +23,4 @@
 
 ## Install
 
-> [!CAUTION]
-> Backup your configs beforehand
-
-```bash
-mkdir -p ~/.config
-mkdir -p ~/.local/bin
-mkdir -p ~/Pictures/wallpapers
-
-cp -r config/* ~/.config
-cp bin/* ~/.local/bin
-cp assets/wallpapers/* ~/Pictures/wallpapers
-```
-
-Press `Mod+B` to run the wallpaper selector, it will take some time when starting for the first time.
+Install or build the listed dependencies using your package manager, then run the `install.sh` script.
