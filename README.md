@@ -23,4 +23,4 @@
 
 ## Install
 
-Install or build the listed dependencies using your package manager, then run the `install.sh` script.
+Build from source or install the listed dependencies using a package manager, then run the `install.sh` script.
