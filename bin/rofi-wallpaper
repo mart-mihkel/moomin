@@ -10,7 +10,7 @@ PICK=$(
 )
 
 if [ ! -z $PICK ]; then
-    hellwal -l -i $PICK &
+    hellwal --skip-term-colors -l -i $PICK &
     awww img $PICK \
         --transition-type random \
         --transition-duration 2 \

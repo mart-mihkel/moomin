@@ -51,11 +51,11 @@ element {
 
 element normal.normal,
 element alternate.normal {
-    text-color: @foreground;
+    text-color: @color7;
     background-color: transparent;
 }
 
 element selected.normal {
     text-color: @foreground;
-    background-color: @color8-opaque;
+    background-color: transparent;
 }

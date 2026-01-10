@@ -25,13 +25,18 @@ listview {
 
 element {
     padding: 0;
-    border: 1px;
     children: [element-icon];
     border-color: @foreground;
 }
 
 element selected.normal {
-    border: 2px;
+    border: 1px;
+}
+
+element normal.normal,
+element selected.normal,
+element alternate.normal {
+    background-color: @background;
 }
 
 element-icon {
