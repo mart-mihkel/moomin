@@ -1,36 +1,41 @@
 #!/usr/bin/env bash
 
+ESC="\033"
+FG1="${ESC}[38;5;1m"
+FG2="${ESC}[38;5;2m"
+RES="${ESC}[0m"
+
 read -rp "backup ~/.config into a tarball (y/n): " BACKUP_PROMPT
 
 case "$BACKUP_PROMPT" in
     y|Y|yes|YES)
-        echo "compressing ~/.config"
+        printf "compressing ~/.config\n"
         tar -czf ~/config.bak.tar.gz -C ~ .config
-        echo "backup saved to ~/config.bak.tar.gz"
+        printf "${FG2}backup saved to ~/config.bak.tar.gz${RES}\n"
         ;;
     n|N|no|NO)
-        echo "skipping backup"
+        printf "${FG1}skipping backup${RES}\n"
         ;;
     *)
-        echo "invalid response, enter y or n"
+        printf "${FG1}invalid response, enter y or n${RES}\n"
         exit 1
         ;;
 esac
 
-# copy configs
+printf "copying configurations\n"
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
 mkdir -p ~/.cache/moomin/wallpapers
 
-cp -v ./bin/* ~/.local/bin
-cp -rv ./config/* ~/.config
-cp -v ./assets/wallpapers/* ~/.cache/moomin/wallpapers
+cp -r ./config/* ~/.config
+cp ./bin/* ~/.local/bin
+cp ./assets/wallpapers/* ~/.cache/moomin/wallpapers
 
-# generate hellwal templates
+printf "generating hellwal templates\n"
 mkdir -p ~/.cache/hellwal
-hellwal --skip-term-colors -q -l -i ./assets/wallpapers/01-coffer.png &
+hellwal --skip-term-colors -q -l -i ./assets/wallpapers/01-coffer.png
 
-# build thumbnails for wallpaper selector
+printf "creating thumbnails for wallpaper selector\n"
 WALLPAPERS=~/.cache/moomin/wallpapers
 THUMBNAILS=~/.cache/moomin/thumbnails
 
@@ -38,9 +43,12 @@ mkdir -p $WALLPAPERS
 mkdir -p $THUMBNAILS
 for WALL in $WALLPAPERS/*; do
     magick convert \
+        -quiet \
         -strip $WALL \
         -thumbnail x540^ \
         -gravity center \
         -extent 330x500 \
-        $THUMBNAILS/$(basename $WALL)
+        $THUMBNAILS/$(basename $WALL) 2>/dev/null
 done
+
+printf "${FG2}install finished${RES}\n"
