@@ -1,0 +1,40 @@
+@import "../../.cache/hellwal/colors-gtk.css";
+
+* {
+  font-family: JetBrainsMono;
+  font-size: 14px;
+
+  color: var(--foreground);
+  background: none;
+
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.image
+.app-icon {
+  -gtk-icon-size: 0;
+}
+
+.close-button,
+.close-button:hover {
+  opacity: 0;
+}
+
+.notification {
+  background-color: var(--background-transparent);
+  box-shadow: 0 0 4px var(--foreground);
+  padding: 4px;
+  margin: 8px;
+}
+
+.control-center {
+  background: var(--background-transparent);
+  color: var(--text-color);
+}
+
+.widget {
+  padding: 4px;
+  margin: 8px;
+}

@@ -13,12 +13,13 @@
 | `hypridle`         | idle daemon          |
 | `alacritty`        | terminal             |
 | `waybar`           | status bar           |
+| `swaync`           | notification daemon  |
 | `awww`             | wallpaper daemon     |
 | `rofi`             | launcher             |
-| `hellwal`          | coloschemes          |
+| `hellwal`          | coloscheme generator |
 | `fastfetch`        | system info          |
 | `imagemagick`      | wallpaper thumbnails |
-| `jetbrains-mono`   | font                 |
+| `jetbrains-mono`   | terminal font        |
 | `material-symbols` | icon font            |
 
 ## Install
