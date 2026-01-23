@@ -1,4 +1,4 @@
-@import "../../.cache/hellwal/colors-gtk.css";
+@import "../../.cache/hellwal/colors-gtk3.css";
 
 * {
   font-family: JetBrainsMono;
@@ -12,14 +12,15 @@
   margin: 0;
 }
 
-.image
+.image,
 .app-icon {
   -gtk-icon-size: 0;
 }
 
 .close-button,
 .close-button:hover {
-  opacity: 0;
+  margin: 4px;
+  padding: 8px;
 }
 
 .notification {
