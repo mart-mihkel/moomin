@@ -45,7 +45,6 @@
     "format": "{icon}",
     "format-icons": [
       "battery_alert",
-      "battery_0_bar",
       "battery_1_bar",
       "battery_2_bar",
       "battery_3_bar",
