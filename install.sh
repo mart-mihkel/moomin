@@ -20,6 +20,7 @@ fi
 printf "copying configurations\n"
 WALLPAPERS=~/.cache/moomin/wallpapers
 THUMBNAILS=~/.cache/moomin/thumbnails
+EMOJI=~/.cache/moomin/emoji.txt
 
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
@@ -29,6 +30,7 @@ mkdir -p $THUMBNAILS
 cp -r ./config/* ~/.config
 cp ./bin/* ~/.local/bin
 cp ./assets/wallpapers/* $WALLPAPERS
+cp ./assets/emojis.txt $EMOJI
 
 printf "generating hellwal templates\n"
 mkdir -p ~/.cache/hellwal

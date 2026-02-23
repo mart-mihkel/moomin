@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+awk -F '\t' '{
+        emoji=$1
+        desc=$4
+        print emoji " " desc "\0" $0
+    }' ~/.cache/moomin/emoji.txt | \
+    rofi -dmenu -display-columns 1 | \
+    awk '{print $1}' | \
+    wl-copy
