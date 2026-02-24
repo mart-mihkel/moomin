@@ -9,10 +9,10 @@ PICK=$(
     done | rofi -dmenu -config ~/.config/rofi/walls.rasi
 )
 
-if [ ! -z $PICK ]; then
-    hellwal --skip-term-colors -l -i $PICK &
-    awww img $PICK \
-        --transition-type random \
-        --transition-duration 2 \
-        --transition-fps 60
-fi
+[[ -z $PICK ]] && exit 1
+
+hellwal --skip-term-colors -l -i $PICK &
+awww img $PICK \
+    --transition-type random \
+    --transition-duration 2 \
+    --transition-fps 60
