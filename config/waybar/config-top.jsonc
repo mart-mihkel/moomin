@@ -1,0 +1,67 @@
+{
+  "spacing": 4,
+  "margin-bottom": -8,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "network",
+    "bluetooth",
+    "battery"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "clock"
+  ],
+  "network": {
+    "format-disabled": "",
+    "format-wifi": "{icon}",
+    "format-ethernet": "lan",
+    "format-disconnected": "signal_wifi_off",
+    "format-icons": [
+      "signal_wifi_0_bar",
+      "network_wifi_1_bar",
+      "network_wifi_2_bar",
+      "network_wifi_3_bar",
+      "signal_wifi_4_bar"
+    ],
+    "tooltip-format-wifi": "{essid} - {signalStrength}%"
+  },
+  "bluetooth": {
+    "format-disabled": "",
+    "format-on": "bluetooth",
+    "format-no-controller": "",
+    "format-off": "bluetooth_disabled",
+    "format-connected": "bluetooth_connected",
+    "tooltip-format-connected": "{device_alias}",
+    "tooltip-format-connected-battery": "{device_alias} - {device_battery_percentage}%"
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-icons": [
+      "battery_alert",
+      "battery_1_bar",
+      "battery_2_bar",
+      "battery_3_bar",
+      "battery_4_bar",
+      "battery_5_bar",
+      "battery_6_bar",
+      "battery_full"
+    ],
+    "tooltip-format": "{timeTo} - {capacity}%"
+  },
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": 4
+    }
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "format": {
+        "today": "<u>{}</u>"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import url("../../.cache/hellwal/colors-gtk2.css");
+
+* {
+  all: unset;
+}
+
+#waybar {
+  background-color: transparent;
+}
+
+#waybar>box {
+  padding: 2px 8px;
+  background-color: transparent;
+}
+
+tooltip>box {
+  padding: 4px 8px;
+  background-color: @background;
+  border: 1px solid @foreground;
+}
+
+tooltip,
+#clock,
+#workspaces {
+  font-size: 12px;
+  color: @foreground;
+  font-family: JetBrainsMono;
+}
+
+#workspaces button {
+  color: @color7;
+  padding: 0 2px;
+}
+
+#workspaces button.active {
+  color: @foreground;
+}
+
+#network,
+#battery,
+#bluetooth {
+  font-size: 14px;
+  color: @foreground;
+  font-family: Material Symbols Rounded;
+}
