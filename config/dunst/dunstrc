@@ -6,7 +6,8 @@ frame_color = "#000000"
 
 height = (16, 256)
 width = (16, 512)
-offset = (8, 8)
+offset = (4, 4)
+gap_size = 4
 
 icon_position = off
 corner_radius = 0

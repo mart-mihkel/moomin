@@ -1,7 +1,7 @@
 {
   "spacing": 4,
   "position": "left",
-  "margin-right": -8,
+  "margin-right": -4,
   "reload_style_on_change": true,
   "modules-left": [
     "network",
@@ -9,11 +9,9 @@
     "battery"
   ],
   "modules-center": [
-    "hyprland/workspaces",
-    "niri/workspaces"
+    "hyprland/workspaces"
   ],
   "modules-right": [
-    "custom/clock",
     "clock"
   ],
   "network": {
@@ -28,8 +26,7 @@
       "network_wifi_3_bar",
       "signal_wifi_4_bar"
     ],
-    "tooltip-format-wifi": "{essid} - {signalStrength}%",
-    "on-click": "alacritty -e impala"
+    "tooltip-format-wifi": "{essid} - {signalStrength}%"
   },
   "bluetooth": {
     "format-disabled": "",
@@ -38,8 +35,7 @@
     "format-off": "bluetooth_disabled",
     "format-connected": "bluetooth_connected",
     "tooltip-format-connected": "{device_alias}",
-    "tooltip-format-connected-battery": "{device_alias} - {device_battery_percentage}%",
-    "on-click": "alacritty -e bluetui"
+    "tooltip-format-connected-battery": "{device_alias} - {device_battery_percentage}%"
   },
   "battery": {
     "format": "{icon}",
@@ -53,17 +49,12 @@
       "battery_6_bar",
       "battery_full"
     ],
-    "tooltip-format": "{timeTo} - {capacity}%",
-    "on-click": "alacritty -e btop"
+    "tooltip-format": "{timeTo} - {capacity}%"
   },
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 4
     }
-  },
-  "custom/clock": {
-    "format": "calendar_clock",
-    "interval": "once"
   },
   "clock": {
     "format": "{:%H\n%M}",

@@ -11,7 +11,12 @@ PICK=$(
 
 [[ -z $PICK ]] && exit 1
 
-hellwal --skip-term-colors -l -i $PICK &
+MODE=$(
+    magick "$PICK" -colorspace Gray -format "%[fx:mean]" info: | \
+    awk '{print ($1 < 0.5) ? "-d" : "-l"}'
+)
+
+hellwal --skip-term-colors $MODE -i $PICK &
 awww img $PICK \
     --transition-type random \
     --transition-duration 2 \
