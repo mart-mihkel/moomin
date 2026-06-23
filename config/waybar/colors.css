@@ -6,3 +6,8 @@ tooltip,
 #workspaces button {
   color: black;
 }
+
+#waybar > box {
+  background: white;
+  box-shadow: 0 0 2px 1px black;
+}

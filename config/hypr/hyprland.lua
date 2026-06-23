@@ -18,8 +18,6 @@ hl.config({
 		},
 		shadow = {
 			enabled = true,
-			range = 6,
-			render_power = 4,
 			color = colors.foreground,
 			color_inactive = colors.foreground,
 		},
@@ -33,7 +31,6 @@ hl.animation({ leaf = "layers", enabled = true, speed = 2, curve = "default", st
 hl.animation({ leaf = "global", enabled = true, speed = 2, curve = "default" })
 
 hl.layer_rule({ match = { namespace = "rofi" }, blur = true, no_anim = true })
-hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
 hl.monitor({ output = "", mode = "preferred", position = "auto", mirror = "eDP-1", scale = 1 })
 

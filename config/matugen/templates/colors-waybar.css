@@ -6,3 +6,8 @@ tooltip,
 #workspaces button {
   color: {{ colors.on_background.default.hex }};
 }
+
+#waybar > box {
+  background: {{ colors.background.default.hex }};
+  box-shadow: 0 0 2px 1px {{ colors.background.default.hex }};
+}

@@ -13,7 +13,8 @@
 }
 
 #waybar > box {
-  padding: 8px;
+  padding: 6px;
+  margin: 12px;
 }
 
 #workspaces button {
