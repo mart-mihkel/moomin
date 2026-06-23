@@ -1,0 +1,5 @@
+* {
+    background: {{ colors.background.default.hex_alpha | set_alpha: 0.5 }};
+    selection: {{ colors.on_background.default.hex }};
+    text: {{ colors.on_background.default.hex_alpha | set_alpha: 0.5 }};
+}

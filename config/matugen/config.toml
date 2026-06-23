@@ -1,0 +1,26 @@
+[config]
+version_check = false
+
+[templates.alacritty]
+input_path = "~/.config/matugen/templates/colors-alacritty.conf"
+output_path = "~/.config/dunst/alacritty/colors.conf"
+
+[templates.dunst]
+input_path = "~/.config/matugen/templates/colors-dunst.conf"
+output_path = "~/.config/dunst/dunstrc.d/colors.conf"
+
+[templates.rofi]
+input_path = "~/.config/matugen/templates/colors.rasi"
+output_path = "~/.config/rofi/colors.rasi"
+
+[templates.waybar]
+input_path = "~/.config/matugen/templates/colors-waybar.css"
+output_path = "~/.config/waybar/colors.css"
+
+[templates.hypr]
+input_path = "~/.config/matugen/templates/colors.conf"
+output_path = "~/.config/hypr/colors.conf"
+
+[templates.lua]
+input_path = "~/.config/matugen/templates/colors.lua"
+output_path = "~/.config/hypr/colors.lua"
