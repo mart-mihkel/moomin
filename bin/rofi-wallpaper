@@ -1,23 +1,43 @@
 #!/usr/bin/env bash
 
-WALLPAPERS=~/.cache/moomin/wallpapers
-THUMBNAILS=~/.cache/moomin/thumbnails
+log() { printf "\033[1;34m[%s]\033[0m %s\n" "$(date '+%H:%M:%S')" "$*"; }
 
-PICK=$(
-    for WALL in $WALLPAPERS/*; do
-        printf "$WALL\0icon\x1f$THUMBNAILS/$(basename $WALL)\n"
+WALLS=~/.cache/moomin/walls
+THUMBS=~/.cache/moomin/thumbs
+
+mkdir -p $WALLS
+mkdir -p $THUMBS
+
+log "Creating thumbnails..."
+for WALL in $WALLS/*; do
+    THUMB=$THUMBS/$(basename $WALL)
+    if [[ -f $THUMB ]]; then
+        continue
+    fi
+
+    log "Cropping $(basename $WALL)..."
+    magick convert \
+        -quiet \
+        -strip $WALL \
+        -thumbnail x540^ \
+        -gravity center \
+        -extent 330x500 \
+        $THUMB 2>/dev/null
+done
+
+IMG=$(
+    for WALL in $WALLS/*; do
+        printf "$WALL\0icon\x1f$THUMBS/$(basename $WALL)\n"
     done | rofi -dmenu -config ~/.config/rofi/walls.rasi
 )
 
-[[ -z $PICK ]] && exit 1
+if [[ -z $IMG ]]; then
+    log "Pick cancelled"
+    exit 1
+fi
 
-MODE=$(
-    magick "$PICK" -colorspace Gray -format "%[fx:mean]" info: | \
-    awk '{print ($1 < 0.5) ? "-d" : "-l"}'
-)
+log "Setting wallpaper"
+awww img $IMG --transition-type grow --transition-fps 60
 
-hellwal --skip-term-colors $MODE -i $PICK &
-awww img $PICK \
-    --transition-type random \
-    --transition-duration 2 \
-    --transition-fps 60
+log "Generating colors"
+matugen image $IMG -m light --prefer saturation

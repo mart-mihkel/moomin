@@ -1,5 +1,5 @@
 [general]
-import = ["~/.cache/hellwal/colors.toml"]
+import = ["~/.config/alacritty/colors.toml"]
 
 [env]
 TERM = "xterm-256color"

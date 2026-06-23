@@ -4,16 +4,16 @@ configuration {
     drun-display-format: "{name}";
 }
 
-@import "~/.cache/hellwal/colors.rasi"
-
 * {
-    font: "JetBrainsMono 10";
+    font: "JetBrainsMono 12";
 }
+
+@import "colors.rasi"
 
 window {
     border: 0;
     fullscreen: true;
-    background-color: @background-opaque;
+    background-color: @background;
 }
 
 mainbox {
@@ -25,13 +25,12 @@ mainbox {
 inputbar {
     children: [entry];
     padding: 16px 64px;
-    text-color: @foreground;
+    text-color: @selection;
 }
 
 entry {
     placeholder: "drun";
     text-color: inherit;
-    border-color: @foreground;
     background-color: transparent;
 }
 
@@ -40,7 +39,7 @@ listview {
     spacing: 8px;
     padding: 16px;
     scrollbar: false;
-    text-color: @foreground;
+    text-color: @selection;
     background-color: transparent;
 }
 
@@ -51,11 +50,11 @@ element {
 
 element normal.normal,
 element alternate.normal {
-    text-color: @color7;
+    text-color: @text;
     background-color: transparent;
 }
 
 element selected.normal {
-    text-color: @foreground;
+    text-color: @selection;
     background-color: transparent;
 }

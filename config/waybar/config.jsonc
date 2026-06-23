@@ -1,7 +1,6 @@
 {
   "spacing": 4,
   "position": "left",
-  "margin-right": -4,
   "reload_style_on_change": true,
   "modules-left": [
     "network",
@@ -26,7 +25,7 @@
       "network_wifi_3_bar",
       "signal_wifi_4_bar"
     ],
-    "tooltip-format-wifi": "{essid} - {signalStrength}%"
+    "tooltip-format-wifi": "{essid} {signalStrength}%"
   },
   "bluetooth": {
     "format-disabled": "",
@@ -35,7 +34,7 @@
     "format-off": "bluetooth_disabled",
     "format-connected": "bluetooth_connected",
     "tooltip-format-connected": "{device_alias}",
-    "tooltip-format-connected-battery": "{device_alias} - {device_battery_percentage}%"
+    "tooltip-format-connected-battery": "{device_alias} {device_battery_percentage}%"
   },
   "battery": {
     "format": "{icon}",
@@ -49,7 +48,7 @@
       "battery_6_bar",
       "battery_full"
     ],
-    "tooltip-format": "{timeTo} - {capacity}%"
+    "tooltip-format": "{capacity}%"
   },
   "hyprland/workspaces": {
     "persistent-workspaces": {
@@ -58,11 +57,6 @@
   },
   "clock": {
     "format": "{:%H\n%M}",
-    "tooltip-format": "{calendar}",
-    "calendar": {
-      "format": {
-        "today": "<u>{}</u>"
-      }
-    }
+    "tooltip-format": ""
   }
 }

@@ -2,12 +2,12 @@ configuration {
     show-icons: true;
 }
 
-@import "~/.cache/hellwal/colors.rasi"
+@import "colors.rasi"
 
 window {
     border: 0;
     fullscreen: true;
-    background-color: @background-opaque;
+    background-color: @background;
 }
 
 mainbox {
@@ -26,17 +26,17 @@ listview {
 element {
     padding: 0;
     children: [element-icon];
-    border-color: @foreground;
-}
-
-element selected.normal {
-    border: 1px;
 }
 
 element normal.normal,
-element selected.normal,
 element alternate.normal {
-    background-color: @background;
+    background-color: transparent;
+}
+
+element selected.normal {
+    border: 12px;
+    border-color: transparent;
+    background-color: transparent;
 }
 
 element-icon {

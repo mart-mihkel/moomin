@@ -1,44 +1,27 @@
-@import url("../../.cache/hellwal/colors-gtk2.css");
-
 * {
   all: unset;
-}
 
-#waybar {
-  background-color: transparent;
-}
-
-#waybar>box {
-  padding: 8px;
-  background-color: transparent;
-}
-
-tooltip>box {
-  padding: 4px 8px;
-  background-color: @background;
-  box-shadow: 0 0 2px @foreground;
-}
-
-tooltip,
-#clock,
-#workspaces {
   font-size: 14px;
-  color: @foreground;
   font-family: JetBrainsMono;
-}
-
-#workspaces button {
-  color: @color7;
-}
-
-#workspaces button.active {
-  color: @foreground;
 }
 
 #network,
 #battery,
 #bluetooth {
   font-size: 16px;
-  color: @foreground;
   font-family: Material Symbols Rounded;
 }
+
+#waybar > box {
+  padding: 8px;
+}
+
+#workspaces button {
+  opacity: 0.5;
+}
+
+#workspaces button.active {
+  opacity: 1;
+}
+
+@import url("colors.css");

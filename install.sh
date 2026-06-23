@@ -1,50 +1,73 @@
 #!/usr/bin/env bash
 
-ESC="\033"
-FG1="${ESC}[38;5;1m"
-FG2="${ESC}[38;5;2m"
-RES="${ESC}[0m"
+set -euo pipefail
 
-read -rp "backup ~/.config into a tarball (y/n): " BACKUP_ANSWER
-if [[ $BACKUP_ANSWER == y ]]; then
-    printf "compressing ~/.config\n"
-    tar -czf ~/config.bak.tar.gz ~/.config
-    printf "${FG2}backup saved to ~/config.bak.tar.gz${RES}\n"
-elif [[ $BACKUP_ANSWER == n ]]; then
-    printf "${FG1}skipping backup${RES}\n"
-else
-    printf "${FG1}invalid response, quitting install${RES}\n"
-    exit 1
-fi
+log()  { printf "\033[1;34m[%s]\033[0m %s\n" "$(date '+%H:%M:%S')" "$*"; }
+warn() {
+    if [[ "$1" == "-n" ]]; then
+        shift
+        printf "\033[1;33m[%s]\033[0m %s" "$(date '+%H:%M:%S')" "$*"
+    else
+        printf "\033[1;33m[%s]\033[0m %s\n" "$(date '+%H:%M:%S')" "$*"
+    fi
+}
 
-printf "copying configurations\n"
-WALLPAPERS=~/.cache/moomin/wallpapers
-THUMBNAILS=~/.cache/moomin/thumbnails
-EMOJI=~/.cache/moomin/emoji.txt
+confirm-overwrite() {
+    local src="$1"
+    local dest="$2"
 
-mkdir -p ~/.config
-mkdir -p ~/.local/bin
-mkdir -p $WALLPAPERS
-mkdir -p $THUMBNAILS
+    if [ ! -e "$dest" ]; then
+        return 0
+    fi
 
-cp -r ./config/* ~/.config
-cp ./bin/* ~/.local/bin
-cp ./assets/wallpapers/* $WALLPAPERS
-cp ./assets/emojis.txt $EMOJI
+    if diff -q "$src" "$dest" &>/dev/null; then
+        return 1
+    fi
 
-printf "generating hellwal templates\n"
-mkdir -p ~/.cache/hellwal
-hellwal --skip-term-colors -q -l -i ./assets/wallpapers/01-coffer.png
+    warn -n "$(basename "$dest") differs from $src, overwrite? [y/N] "
+    read -r </dev/tty
 
-printf "creating thumbnails for wallpaper selector\n"
-for WALL in $WALLPAPERS/*; do
-    magick convert \
-        -quiet \
-        -strip $WALL \
-        -thumbnail x540^ \
-        -gravity center \
-        -extent 330x500 \
-        $THUMBNAILS/$(basename $WALL) 2>/dev/null
-done
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
 
-printf "${FG2}install finished${RES}\n"
+install-file() {
+    local src="$1"
+    local dest="$2"
+    local parent="$(dirname "$dest")"
+
+    mkdir -p "$parent"
+
+    if confirm-overwrite "$src" "$dest"; then
+        cp "$src" "$dest"
+        log "Installed $dest"
+    fi
+}
+
+install-dir() {
+    local src="$1"
+    local dest="$2"
+    local file
+    local path
+
+    mkdir -p "$dest"
+
+    while IFS= read -r -d '' file; do
+        path="${file#$src/}"
+        install-file "$file" "$dest/$path"
+    done < <(find "$src" -type f -print0)
+}
+
+log "Copying configs..."
+install-dir ./config ~/.config
+
+log "Copying scripts..."
+install-dir ./bin ~/.local/bin
+
+log "Copying assets..."
+install-dir ./assets ~/.cache/moomin
+
+log "Configs installed"

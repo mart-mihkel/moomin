@@ -1,0 +1,5 @@
+* {
+    background: #f9f9ff80;
+    selection: #1a1b20;
+    text: #1a1b2080;
+}
