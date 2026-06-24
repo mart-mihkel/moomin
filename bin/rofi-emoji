@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
-EMOJI=$(cat ~/.cache/rice/emoji | rofi -dmenu | awk '{print $1}')
+EMOJI=$(
+    cat ~/.cache/rice/emoji | \
+    rofi -dmenu | \
+    awk '{print $1}'
+)
+
 wl-copy "$EMOJI"
 wtype -M ctrl v -m ctrl

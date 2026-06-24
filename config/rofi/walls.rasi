@@ -5,26 +5,21 @@ configuration {
 @import "colors.rasi"
 
 window {
-    border: 0;
     fullscreen: true;
-    background-color: @background;
 }
 
-mainbox {
-    children: [listview];
+inputbar {
+    enabled: false;
 }
 
 listview {
     border: 0;
-    columns: 7;
-    spacing: 12px;
-    padding: 275px 75px;
+    columns: 5;
+    padding: 30% 15%;
     scrollbar: false;
-    flow: horizontal;
 }
 
 element {
-    padding: 0;
     children: [element-icon];
 }
 
@@ -34,12 +29,12 @@ element alternate.normal {
 }
 
 element selected.normal {
-    border: 12px;
-    border-color: transparent;
-    background-color: transparent;
+    border: 1px;
+    border-color: @selection;
+    background-color: @background;
 }
 
 element-icon {
+    size: 35%;
     expand: true;
-    size: 330px 500px;
 }

@@ -3,41 +3,42 @@
 log() { printf "\033[1;34m[%s]\033[0m %s\n" "$(date '+%H:%M:%S')" "$*"; }
 
 WALLS=~/.cache/moomin/walls
-THUMBS=~/.cache/moomin/thumbs
+ICONS=~/.cache/moomin/icons
 
 mkdir -p $WALLS
-mkdir -p $THUMBS
+mkdir -p $ICONS
 
-log "Creating thumbnails..."
-for WALL in $WALLS/*; do
-    THUMB=$THUMBS/$(basename $WALL)
-    if [[ -f $THUMB ]]; then
+log "creating thumbnails..."
+for WP in $WALLS/*; do
+    ICO=$ICONS/$(basename $WP)
+    if [[ -f $ICO ]]; then
         continue
     fi
 
-    log "Cropping $(basename $WALL)..."
+    log "cropping $(basename $WP)..."
     magick convert \
         -quiet \
-        -strip $WALL \
-        -thumbnail x540^ \
+        -strip $WP \
+        -thumbnail x500^ \
         -gravity center \
-        -extent 330x500 \
-        $THUMB 2>/dev/null
+        -extent 500x500 \
+        $ICO 2>/dev/null
 done
 
 IMG=$(
-    for WALL in $WALLS/*; do
-        printf "$WALL\0icon\x1f$THUMBS/$(basename $WALL)\n"
+    for WP in $WALLS/*; do
+        printf "$WP\0icon\x1f$ICONS/$(basename $WP)\n"
     done | rofi -dmenu -config ~/.config/rofi/walls.rasi
 )
 
 if [[ -z $IMG ]]; then
-    log "Pick cancelled"
+    log "pick cancelled"
     exit 1
 fi
 
-log "Setting wallpaper"
+log "setting wallpaper"
 awww img $IMG --transition-type grow --transition-fps 60
 
-log "Generating colors"
+log "generating colors"
 matugen image $IMG -m light --prefer saturation
+dunstctl reload
