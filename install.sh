@@ -74,43 +74,46 @@ install-deps() {
         if apt-cache show "$pkg" &>/dev/null; then
             available+=("$pkg")
         else
-            warn "$pkg not found in repos — install manually"
+            warn "$pkg not found in repos, install manually"
         fi
     done
 
     if [[ ${#available[@]} -gt 0 ]]; then
-        log "Installing APT packages..."
+        log "installing APT packages..."
         sudo apt update && sudo apt install -y "${available[@]}"
     fi
 
     if ! command -v cargo &>/dev/null; then
-        log "Installing cargo via rustup..."
+        log "installing cargo via rustup..."
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         source ~/.cargo/env
     else
-        log "Cargo already installed"
+        log "cargo already installed"
     fi
 
     if ! command -v matugen &>/dev/null; then
-        log "Installing matugen..."
+        log "installing matugen..."
         cargo install matugen
     else
-        log "Matugen already installed"
+        log "matugen already installed"
     fi
 
     if ! command -v grimblast &>/dev/null; then
-        log "Installing grimblast..."
+        log "installing grimblast..."
         mkdir -p ~/.local/bin
         wget -q "https://raw.githubusercontent.com/hyprwm/contrib/bf1a7cdb086587e6bed6e8ecd285a81c01a11c54/grimblast/grimblast" -O ~/.local/bin/grimblast
+
         chmod +x ~/.local/bin/grimblast
     else
-        log "Grimblast already installed"
+        log "grimblast already installed"
     fi
 
     if ! command -v awww &>/dev/null || ! command -v awww-daemon &>/dev/null; then
-        log "Building awww from source..."
+        log "building awww from source..."
+
         git clone https://codeberg.org/LGFae/awww.git "${TMPDIR}/awww"
         cargo build --release --manifest-path "${TMPDIR}/awww/Cargo.toml"
+
         mkdir -p ~/.local/bin
         cp "${TMPDIR}/awww/target/release/awww" ~/.local/bin/
         cp "${TMPDIR}/awww/target/release/awww-daemon" ~/.local/bin/
@@ -124,26 +127,28 @@ install-fonts() {
     mkdir -p "$dir"
 
     if fc-list :lang=en | grep -qi "JetBrainsMonoNerdFont" &>/dev/null; then
-        log "JetBrainsMono Nerd Font already installed"
+        log "nerdfont already installed"
     else
-        log "Downloading JetBrainsMono Nerd Font..."
+        log "downloading nerdfont..."
         local url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
         local tmp
         tmp=$(mktemp -d)
+
         curl -fsSL "$url" -o "$tmp/JetBrainsMono.zip"
         unzip -qo "$tmp/JetBrainsMono.zip" -d "$dir" -x "*.txt" "*.md" "readme*" 2>/dev/null
+
         rm -rf "$tmp"
-        log "JetBrainsMono Nerd Font installed"
+        log "nerdfont installed"
     fi
 
     if fc-list :lang=en | grep -qi "MaterialSymbolsRounded" &>/dev/null; then
-        log "Material Symbols Rounded already installed"
+        log "material symbols already installed"
     else
-        log "Downloading Material Symbols Rounded..."
+        log "downloading material symbols..."
         local url="https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf"
         mkdir -p "$dir"
         curl -fsSL "$url" -o "$dir/MaterialSymbolsRounded.ttf"
-        log "Material Symbols Rounded installed"
+        log "material symbols installed"
     fi
 
     fc-cache -f "$dir" &>/dev/null
@@ -161,24 +166,20 @@ if [[ ${1:-} == "--help" || ${1:-} == "-h" ]]; then
 fi
 
 if [[ $* != *--no-deps* ]]; then
-    log "Installing dependencies..."
+    log "installing dependencies..."
     install-deps
 fi
 
 if [[ $* != *--no-fonts* ]]; then
-    log "Installing fonts..."
+    log "installing fonts..."
     install-fonts
 fi
 
 if [[ $* != *--no-configs* ]]; then
-    log "Copying configs..."
+    log "copying configs..."
     install-dir ./config ~/.config
-
-    log "Copying scripts..."
     install-dir ./bin ~/.local/bin
-
-    log "Copying assets..."
     install-dir ./assets ~/.cache/moomin
-
-    log "All done"
 fi
+
+log "all done"
